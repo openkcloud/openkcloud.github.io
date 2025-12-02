@@ -74,7 +74,7 @@ order: 3
   <h3>openKcloud 공개SW대상 컨퍼런스 자료 다운로드</h3>
 
   <!-- 2025 제2회 컨퍼런스 -->
-  <section class="conference">
+  <!-- <section class="conference">
     <h2>openKcloud v0.2.0 (2026.12.15)</h2>
     <div class="download-item">
       <span>v0.1.0 소스 코드(ZIP 파일)</span>
@@ -92,23 +92,31 @@ order: 3
       <span>공개 SW 컨퍼런스 발표 영상 (MP4)</span>
       <a href="downloads/2025/presentation.pptx" download>다운로드</a>
     </div>
-  </section>
+  </section> -->
 
    <!-- 2025 제1회 컨퍼런스 -->
   <section class="conference">
-     <h2>openKcloud v0.1.0 (2025.07.15)</h2>
-     <div class="download-item">
+     <h2>1st Conference - openKcloud DevDay 2025(2025.11.25) v0.1.0</h2>
+     <!-- <div class="download-item">
       <span>v0.1.0 기술 문서 (PDF)</span>
       <a href="downloads/2024/documentation.pdf" download>다운로드</a>
+    </div> -->
+    <div class="download-item">
+      <span>v0.1.0 소스 코드(zip 파일)</span>
+      <a href="https://github.com/openkcloud/openkcloud/archive/refs/tags/v0.1.0.zip" download>다운로드</a>
     </div>
     <div class="download-item">
-      <span>공개 SW 컨퍼런스 발표 자료 (PPTX)</span>
-      <a href="downloads/2024/presentation.pptx" download>다운로드</a>
+      <span>v0.1.0 소스 코드(tar.gz 파일)</span>
+      <a href="https://github.com/openkcloud/openkcloud/archive/refs/tags/v0.1.0.tar.gz" download>다운로드</a>
     </div>
     <div class="download-item">
+      <span>openKcloud DevDay 2025 발표자료(7종)</span>
+      <a href="downloads/2025/openKcloud DevDay 2025 Presentations.zip" download>다운로드</a>
+    </div>
+    <!-- <div class="download-item">
       <span>공개 SW 컨퍼런스 발표 영상 (MP4)</span>
       <a href="downloads/2025/presentation.pptx" download>다운로드</a>
-    </div>
+    </div> -->
   </section>
 
 </body>
