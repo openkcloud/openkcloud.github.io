@@ -95,25 +95,25 @@
         [
           "AI반도체로 바꾸는 클라우드의 미래:도전과 기회",
           "ETRI / 최현화 책임",
-          { "text": "GitHub", "href": "https://github.com/openkcloud/openkcloud.github.io/blob/main/downloads/2025/openKcloud%20DevDay%202025%20Presentations.zip" },
+          { "text": "GitHub", "href": "https://github.com/openkcloud/openkcloud.github.io/blob/main/presentations/2025/1. openKcloud DevDay 2025 - AI반도체로 바꾸는 클라우드의 미래 - 도전과 기회.pdf" },
           { "text": "YouTube", "href": "https://www.youtube.com/watch?v=RQjdmeMs38M&t=19s" }
         ],
         [
           "AI반도체의 현재와 미래",
           "퓨리오사에이아이 / 이병찬 수석",
-          { "text": "GitHub", "href": "https://github.com/openkcloud/openkcloud.github.io/blob/main/downloads/2025/openKcloud%20DevDay%202025%20Presentations.zip" },
+          { "text": "GitHub", "href": "https://github.com/openkcloud/openkcloud.github.io/blob/main/presentations/2025/2. AI반도체의 현재와 미래.pdf" },
           { "text": "YouTube", "href": "https://www.youtube.com/watch?v=vJZ-mATo2hw" }
         ],
         [
           "AI반도체에서 클라우드까지 옵저버빌리티의 모든 것",
           "이노그리드 / 김바울 수석",
-          { "text": "GitHub", "href": "https://github.com/openkcloud/openkcloud.github.io/blob/main/downloads/2025/openKcloud%20DevDay%202025%20Presentations.zip" },
+          { "text": "GitHub", "href": "https://github.com/openkcloud/openkcloud.github.io/blob/main/presentations/2025/3. AI반도체에서 클라우드까지 옵저버빌리티의 모든것.pdf" },
           { "text": "YouTube", "href": "https://www.youtube.com/watch?v=yVPMm9LFvjU" }
         ],
         [
           "AI반도체 기반 AI SW 개발을 위한 IDE 동향",
           "오케스트로 / 박의규 소장",
-          { "text": "GitHub", "href": "https://github.com/openkcloud/openkcloud.github.io/blob/main/downloads/2025/openKcloud%20DevDay%202025%20Presentations.zip" },
+          { "text": "GitHub", "href": "https://github.com/openkcloud/openkcloud.github.io/blob/main/presentations/2025/4. AI반도체 기반 AI SW 개발을 위한 IDE 동향.pdf" },
           { "text": "YouTube", "href": "https://www.youtube.com/watch?v=fe5tdFi1hqg" }
         ],
         {
@@ -123,19 +123,19 @@
         [
           "From Chip to Cloud : Kubernetes에서 NPU 인프라 개발",
           "ETRI / 차재근 선임",
-          { "text": "GitHub", "href": "https://github.com/openkcloud/openkcloud.github.io/blob/main/downloads/2025/openKcloud%20DevDay%202025%20Presentations.zip" },
+          { "text": "GitHub", "href": "https://github.com/openkcloud/openkcloud.github.io/blob/main/presentations/2025/5. From Chip to Cloud - Kubernetes NPU 인프라 개발.pdf" },
           { "text": "YouTube", "href": "https://www.youtube.com/watch?v=j4X-sFzxFWE" }
         ],
         [
           "From Chip to Cloud : Openstack에서 NPU 인프라 개발",
           "ETRI / 김수영 책임",
-          { "text": "GitHub", "href": "https://github.com/openkcloud/openkcloud.github.io/blob/main/downloads/2025/openKcloud%20DevDay%202025%20Presentations.zip" },
+          { "text": "GitHub", "href": "https://github.com/openkcloud/openkcloud.github.io/blob/main/presentations/2025/6. From Chip to Cloud - OpenStack에서 NPU 인프라 개발.pdf" },
           { "text": "YouTube", "href": "https://www.youtube.com/watch?v=8LXm3YiDCC0" }
         ],
         [
           "From Chip to Cloud : Kubernetes에서 운영 비용 최적화 스케줄러 개발",
           "KETI / 안재훈 팀장",
-          { "text": "GitHub", "href": "https://github.com/openkcloud/openkcloud.github.io/blob/main/downloads/2025/openKcloud%20DevDay%202025%20Presentations.zip" },
+          { "text": "GitHub", "href": "https://github.com/openkcloud/openkcloud.github.io/blob/main/presentations/2025/7. From Chip to Cloud - Kubernetes에서 운영 비용 최적화 스케줄러 개발.pdf" },
           { "text": "YouTube", "href": "https://www.youtube.com/watch?v=1NJbNb6AjW4&t=4s" }
         ]      
       ]
