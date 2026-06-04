@@ -244,7 +244,30 @@
         "type": "image",
         "src": "images/testbench_1.jpg",
         "alt": "openKcloud Testbed"
-      } 
+      }
     ]
-  }  
+  },
+  "news-collabday-2026": {
+    "cat": "blog",
+    "date": "2026.06.01",
+    "tag": "공지",
+    "tagClass": "tag-blog",
+    "title": "openKcloud CollabDay 2026 개최",
+    "body": [
+      {
+        "type": "highlight",
+        "text": "🎉 본 행사는 AI반도체 클라우드 플랫폼 기술의 추진 방향과 적용 가능성을 공유하고, AI반도체 기반 클라우드 생태계 확산을 위한 협력 방향을 논의하는 기술교류 행사입니다."
+      },
+      {
+        "type": "image",
+        "src": "images/openkcloud_collabday_2026.png",
+        "alt": "openKcloud CollabDay 2026"
+      },
+      {
+        "type": "image",
+        "src": "images/openkcloud_collabday_2026_group_photo.jpg",
+        "alt": "openKcloud CollabDay 2026 group photo"
+      }
+    ]
+  }
 }
