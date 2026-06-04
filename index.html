@@ -1068,16 +1068,32 @@
 
     <!-- Filter tabs -->
     <div class="news-filter-bar">
-      <button class="news-filter-btn active" onclick="filterNews(this,'all')">전체 <span class="news-count-badge">6</span></button>
+      <button class="news-filter-btn active" onclick="filterNews(this,'all')">전체 <span class="news-count-badge">8</span></button>
       <button class="news-filter-btn" onclick="filterNews(this,'release')">🚀 릴리스 <span class="news-count-badge">1</span></button>
-      <button class="news-filter-btn" onclick="filterNews(this,'blog')">📑 공지 &amp;💻 블로그 <span class="news-count-badge">3</span></button>
+      <button class="news-filter-btn" onclick="filterNews(this,'blog')">📑 공지 &amp;💻 블로그 <span class="news-count-badge">5</span></button>
       <button class="news-filter-btn" onclick="filterNews(this,'roadmap')">🧭 로드맵 <span class="news-count-badge">1</span></button>
       <button class="news-filter-btn" onclick="filterNews(this,'media')">📰 미디어 <span class="news-count-badge">1</span></button>
     </div>
 
     <!-- Cards grid -->
     <div class="news-grid" id="news-grid">
-      <!-- BLOG 3 -->
+      <!-- BLOG 5 -->
+      <div class="news-card reveal" data-cat="blog" onclick="openNewsDrawer('news-collabday-2026')">
+        <div class="news-card-img">🧑‍💻</div>
+        <div class="news-card-body">
+          <div class="news-meta">
+            <span class="news-date">2026.06.01</span>
+            <span class="news-tag-pill tag-blog">공지</span>
+          </div>
+          <div class="news-card-title">openKcloud CollabDay 2026 개최</div>
+          <p class="news-card-excerpt">2026.05.27(수) 14:00 ~ 18:00 엘타워 토파즈홀</p>
+          <div class="news-card-footer">
+            <span class="news-read-more">상세 보기</span>
+            <span class="news-source-badge">워크샵</span>
+          </div>
+        </div>
+      </div>
+      <!-- BLOG 4 -->
       <div class="news-card reveal" data-cat="blog" onclick="openNewsDrawer('news-tech-blog')">
         <div class="news-card-img">💻</div>
         <div class="news-card-body">
@@ -1093,7 +1109,7 @@
           </div>
         </div>
       </div>
-      <!-- BLOG 2 -->
+      <!-- BLOG 3 -->
       <div class="news-card reveal" data-cat="blog" onclick="openNewsDrawer('news-ecosystem-1')">
         <div class="news-card-img">📑</div>
         <div class="news-card-body">
@@ -1158,7 +1174,7 @@
           </div>
         </div>
       </div>
-      <!-- BLOG 1 -->
+      <!-- BLOG 2 -->
       <div class="news-card reveal" data-cat="blog" onclick="openNewsDrawer('news-ecosystem')">
         <div class="news-card-img">🧑‍💻</div>
         <div class="news-card-body">
@@ -1174,7 +1190,7 @@
           </div>
         </div>
       </div>
-      <!-- BLOG 3 -->
+      <!-- BLOG 1 -->
       <div class="news-card reveal" data-cat="blog" onclick="openNewsDrawer('news-kcloud')">
         <div class="news-card-img">🧑‍💻</div>
         <div class="news-card-body">
@@ -1353,6 +1369,26 @@
       <div class="forum-threads">
 
         <div class="forum-thread pinned" data-cat="announce" onclick="openThreadDetail(1)">
+          <div class="thread-avatar avatar-blue">K</div>
+          <div class="thread-body">
+            <div class="thread-title-row">
+              <span class="thread-pin">📌</span>
+              <span class="thread-title">📢 openKcloud CollabDay 2026 개최</span>
+              <span class="thread-badge badge-announce">ANNOUNCE</span>
+            </div>
+            <div class="thread-meta">
+              <span>openKcloud 커뮤니티</span>
+              <span>·</span>
+              <span>AI반도체 기반 클라우드 생태계 확산을 위한 협력 방향을 논의하는 기술교류 행사</span>
+            </div>
+          </div>
+          <div class="thread-stats">
+            <span class="thread-stat-num">💬 0</span>
+            <span class="thread-time">2026-06-01</span>
+          </div>
+        </div>
+
+        <div class="forum-thread pinned" data-cat="announce" onclick="openThreadDetail(2)">
           <div class="thread-avatar avatar-green">K</div>
           <div class="thread-body">
             <div class="thread-title-row">
@@ -1372,7 +1408,7 @@
           </div>
         </div>
 
-        <div class="forum-thread pinned" data-cat="announce" onclick="openThreadDetail(2)">
+        <div class="forum-thread pinned" data-cat="announce" onclick="openThreadDetail(3)">
           <div class="thread-avatar avatar-teal">K</div>
           <div class="thread-body">
             <div class="thread-title-row">
@@ -1392,7 +1428,7 @@
           </div>
         </div>
 
-        <div class="forum-thread pinned" data-cat="announce" onclick="openThreadDetail(3)">
+        <div class="forum-thread pinned" data-cat="announce" onclick="openThreadDetail(4)">
           <div class="thread-avatar avatar-blue">K</div>
           <div class="thread-body">
             <div class="thread-title-row">
@@ -1411,7 +1447,7 @@
             <span class="thread-time">2025-10-25</span>
           </div>
         </div>        
-        <div class="forum-thread pinned" data-cat="announce" onclick="openThreadDetail(4)">
+        <div class="forum-thread pinned" data-cat="announce" onclick="openThreadDetail(5)">
           <div class="thread-avatar avatar-blue">K</div>
           <div class="thread-body">
             <div class="thread-title-row">
