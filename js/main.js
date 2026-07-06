@@ -240,7 +240,7 @@ var threadNewsMap = [
   { id: 3, newsKey: 'news-v010',        avatar: 'K', avatarClass: 'avatar-teal',   author: 'openKcloud 커뮤니티', date: '2025-11-27', cat: 'announce' },
   { id: 4, newsKey: 'news-ecosystem',   avatar: 'K', avatarClass: 'avatar-blue',   author: 'openKcloud 커뮤니티', date: '2025-10-25', cat: 'announce' },
   { id: 5, newsKey: 'news-kcloud',   avatar: 'K', avatarClass: 'avatar-blue',   author: 'openKcloud 커뮤니티', date: '2025-06-08', cat: 'announce' }
-  { id: 6, newsKey: 'news-collabday-2026',   avatar: 'K', avatarClass: 'avatar-blue',   author: 'openKcloud 커뮤니티', date: '2025-06-08', cat: 'announce' }
+  { id: 6, newsKey: 'news-collabday1-2026',   avatar: 'K', avatarClass: 'avatar-blue',   author: 'openKcloud 커뮤니티', date: '2025-06-08', cat: 'announce' }
 ];
 
 function newsBodyToHtml(body) {
