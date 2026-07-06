@@ -235,11 +235,12 @@ var threadData = {};
 // Mapping: threadId → news-data key + forum-specific overrides
 
 var threadNewsMap = [
-  { id: 1, newsKey: 'news-collabday-2026',   avatar: 'K', avatarClass: 'avatar-blue',   author: 'openKcloud 커뮤니티', date: '2026-06-01', cat: 'announce' },
+  { id: 1, newsKey: 'news-collabday-2026',   avatar: 'K', avatarClass: 'avatar-blue',   author: 'openKcloud 커뮤니티', date: '2026-05-18', cat: 'announce' },
   { id: 2, newsKey: 'news-ecosystem-1', avatar: 'K', avatarClass: 'avatar-green',  author: 'openKcloud 커뮤니티', date: '2025-12-25', cat: 'announce' },
   { id: 3, newsKey: 'news-v010',        avatar: 'K', avatarClass: 'avatar-teal',   author: 'openKcloud 커뮤니티', date: '2025-11-27', cat: 'announce' },
   { id: 4, newsKey: 'news-ecosystem',   avatar: 'K', avatarClass: 'avatar-blue',   author: 'openKcloud 커뮤니티', date: '2025-10-25', cat: 'announce' },
   { id: 5, newsKey: 'news-kcloud',   avatar: 'K', avatarClass: 'avatar-blue',   author: 'openKcloud 커뮤니티', date: '2025-06-08', cat: 'announce' }
+  { id: 6, newsKey: 'news-collabday-2026',   avatar: 'K', avatarClass: 'avatar-blue',   author: 'openKcloud 커뮤니티', date: '2025-06-08', cat: 'announce' }
 ];
 
 function newsBodyToHtml(body) {
@@ -322,7 +323,7 @@ document.querySelectorAll('.forum-thread').forEach(function(el) {
 });
 
 //커뮤니티 게시글 갯수 + 1
-var nextThreadId = 6;
+var nextThreadId = 7;
 
 // ── localStorage persistence helpers ──
 function saveUserPosts() {
