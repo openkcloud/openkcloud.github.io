@@ -219,9 +219,9 @@
     "date": "2025.06.08",
     "tag": "공지",
     "tagClass": "tag-blog",
-    "title": "25년도 openKcloud 플랫폼 기술 개발 결과",
+    "title": "25년도 openKcloud 플랫폼 연구개발 결과 공유",
     "body": [
-      { "type": "p", "text": "26년도 openCloud 커뮤니티 1차 워크샵에서 산·학·연 주요 연구기관의 연구개발 수행 결과를 공유합니다. K8s, Openstack 확장 기반 AI반도체 연동 및 통합 관리 기술이 핵심입니다." },
+      { "type": "p", "text": "26년도 openKcloud 커뮤니티 1차 워크샵에서는 25년도 산·학·연 주요 연구기관의 연구개발 수행 결과 공유. K8s, Openstack 확장 기반 AI반도체 연동 및 통합 관리 기술이 핵심 결과물." },
       { "type": "section", "title": "연구개발 수행 결과" },
       { "type": "ul", "items": [
         "Kubernetes, Openstack 확장 기반 AI반도체 연동 및 통합 관리 기술",
