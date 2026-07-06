@@ -269,28 +269,5 @@
         "alt": "openKcloud CollabDay 2026 group photo"
       }
     ]
-  },
-  "news-collabday1-2026": {
-    "cat": "blog",
-    "date": "2026.06.05",
-    "tag": "공지",
-    "tagClass": "tag-blog",
-    "title": "openKcloud CollabDay 2026 성황리 개최",
-    "body": [
-      {
-        "type": "highlight",
-        "text": "🎉 클라우드 서비스 제공사(CSP), 관리형 서비스 제공사(MSP), 데이터센터 운영 사업자, AI 서비스 사업자 등 다양한 수요기관의 높은 관심과 적극적인 참여 속에 openKcloud CollabDay 2026이 성황리에 개최되었습니다. 이번 행사는 AI반도체 클라우드 플랫폼 기술 개발 방향을 공유하고, 수요기관의 다양한 의견을 수렴하여 향후 플랫폼 개발에 반영하기 위해 마련되었습니다."
-      },
-      {
-        "type": "image",
-        "src": "images/openkcloud_collabday1_2026.png",
-        "alt": "openKcloud CollabDay 2026 conference"
-      },
-      {
-        "type": "image",
-        "src": "images/openkcloud_collabday2_2026.png",
-        "alt": "openKcloud CollabDay 2026 News"
-      }
-    ]
   }
 }
