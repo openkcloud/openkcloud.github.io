@@ -538,7 +538,7 @@ nav {
 .news-card:hover::before { transform: scaleX(1); }
 
 .news-card-img {
-  height: 130px;
+  height: 150px;
   display: flex; align-items: center; justify-content: center; font-size: 80px;
   position: relative; overflow: hidden;
 }
@@ -585,9 +585,9 @@ nav {
 }
 
 .news-card-thumb {
-  width: 96%;
-  height: 96%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
