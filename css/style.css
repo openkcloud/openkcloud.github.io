@@ -585,8 +585,8 @@ nav {
 }
 
 .news-card-thumb {
-  width: 82%;
-  height: 82%;
+  width: 96%;
+  height: 96%;
   object-fit: contain;
   display: block;
 }
