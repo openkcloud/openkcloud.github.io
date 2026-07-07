@@ -209,7 +209,7 @@ nav {
 }
 
 .latest-post-content {
-  padding: 12px 18px 14px;
+  padding: 10px 18px 12px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -217,7 +217,7 @@ nav {
 
 .latest-post-type {
   align-self: flex-start;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .latest-post-title {
