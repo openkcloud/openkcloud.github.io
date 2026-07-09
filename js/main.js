@@ -709,284 +709,151 @@ document.addEventListener('keydown', function(e) {
   }
 });
 // ── GitHub Stats Auto-Fetch (All Repos) with localStorage Cache ──
-// ── GitHub Stats Auto-Fetch (All Repos) with localStorage Cache ──
-document.addEventListener('DOMContentLoaded', function () {
-  (function () {
-    var org = 'openkcloud';
-    var CACHE_KEY = 'okc_gh_stats';
-    var CACHE_TTL = 60 * 60 * 1000; // 1시간
+(function() {
+  var org = 'openkcloud';
+  var CACHE_KEY = 'okc_gh_stats';
+  var CACHE_TTL = 60 * 60 * 1000; // 1시간 (밀리초) — 캐시 유효 시간
 
-    // GitHub Personal Access Token 사용 비권장: public repo용이면 빈 값 유지
-    var GH_TOKEN = '';
+  // ── GitHub Personal Access Token (선택사항) ──
+  // 인증 없이: IP당 시간당 60회 제한 → 캐싱으로 충분히 운영 가능
+  // 토큰 사용 시: 시간당 5,000회 제한, 주의사항:public 리포에 토큰 커밋시 GitHub 자동 폐기
+  var GH_TOKEN = '';
 
-    var ghHeaders = {
-      'Accept': 'application/vnd.github.v3+json'
-    };
+  var ghHeaders = { 'Accept': 'application/vnd.github.v3+json' };
+  if (GH_TOKEN) ghHeaders['Authorization'] = 'token ' + GH_TOKEN;
 
-    if (GH_TOKEN) {
-      ghHeaders['Authorization'] = 'token ' + GH_TOKEN;
+  function ghFetch(url) {
+    return fetch(url, { headers: ghHeaders });
+  }
+
+  // ── UI 업데이트 함수 ──
+  function applyStats(data) {
+    var el = document.getElementById('gh-repo-stats');
+    if (el) {
+      var spans = el.querySelectorAll('span');
+      if (spans[0]) spans[0].textContent = '⭐ Stars: ' + data.stars;
+      if (spans[1]) spans[1].textContent = '🍴 Forks: ' + data.forks;
+      if (spans[2]) spans[2].textContent = '📝 Commits: ' + data.commits;
+      if (spans[3]) spans[3].textContent = '🌿 ' + data.branches + ' Branches · ' + data.tags + ' Tags';
+      if (spans[4]) spans[4].textContent = data.langText;
     }
+    var ghRepos = document.getElementById('gh-repos');
+    var ghStars = document.getElementById('gh-stars');
+    var ghForks = document.getElementById('gh-forks');
+    var ghCommits = document.getElementById('gh-commits');
+    if (ghRepos) ghRepos.textContent = data.repoCount;
+    if (ghStars) ghStars.textContent = data.stars;
+    if (ghForks) ghForks.textContent = data.forks;
+    if (ghCommits) ghCommits.textContent = data.commits;
+  }
 
-    function ghFetch(url) {
-      return fetch(url, { headers: ghHeaders });
+  // ── 캐시 확인: 유효하면 API 호출 없이 즉시 표시 ──
+  try {
+    var cached = JSON.parse(localStorage.getItem(CACHE_KEY));
+    if (cached && (Date.now() - cached.timestamp < CACHE_TTL)) {
+      applyStats(cached.data);
+      return; // 캐시 유효 → API 호출 생략
     }
+  } catch(e) { /* 캐시 파싱 실패 시 무시하고 API 호출 진행 */ }
 
-    function formatNumber(value) {
-      return Number(value || 0).toLocaleString('en-US');
-    }
+  // ── 캐시 만료 또는 없음: API에서 새로 수집 ──
+  var el = document.getElementById('gh-repo-stats');
+  if (!el) return;
 
-    function applyStats(data) {
-      var el = document.getElementById('gh-repo-stats');
+  var orgApi = 'https://api.github.com/orgs/' + org + '/repos?per_page=100';
 
-      if (el) {
-        var spans = el.querySelectorAll('span');
+  ghFetch(orgApi).then(function(r){ return r.json(); }).then(function(repos) {
+    if (!Array.isArray(repos)) return;
 
-        if (spans[0]) spans[0].textContent = '⭐ Stars: ' + formatNumber(data.stars);
-        if (spans[1]) spans[1].textContent = '🍴 Forks: ' + formatNumber(data.forks);
-        if (spans[2]) spans[2].textContent = '📝 Commits: ' + formatNumber(data.commits);
-        if (spans[3]) spans[3].textContent = '🌿 ' + formatNumber(data.branches) + ' Branches · ' + formatNumber(data.tags) + ' Tags';
-        if (spans[4]) spans[4].textContent = data.langText || '💻 Languages: –';
-      }
+    // Aggregate stars, forks
+    var totalStars = 0, totalForks = 0;
+    repos.forEach(function(r){ totalStars += r.stargazers_count || 0; totalForks += r.forks_count || 0; });
 
-      var ghRepos = document.getElementById('gh-repos');
-      var ghStars = document.getElementById('gh-stars');
-      var ghForks = document.getElementById('gh-forks');
-      var ghCommits = document.getElementById('gh-commits');
+    // Aggregate commits (2025년 이후만)
+    var commitPromises = repos.map(function(r) {
+      return ghFetch('https://api.github.com/repos/' + org + '/' + r.name + '/commits?per_page=1&since=2025-01-01T00:00:00Z')
+        .then(function(resp) {
+          var link = resp.headers.get('Link') || '';
+          var m = link.match(/page=(\d+)>;\s*rel="last"/);
+          if (m) return parseInt(m[1]);
+          return resp.json().then(function(d){ return Array.isArray(d) ? d.length : 0; });
+        }).catch(function(){ return 0; });
+    });
 
-      if (ghRepos) ghRepos.textContent = formatNumber(data.repoCount);
-      if (ghStars) ghStars.textContent = formatNumber(data.stars);
-      if (ghForks) ghForks.textContent = formatNumber(data.forks);
-      if (ghCommits) ghCommits.textContent = formatNumber(data.commits);
-    }
+    // Aggregate branches & tags
+    var btPromises = repos.map(function(r) {
+      var base = 'https://api.github.com/repos/' + org + '/' + r.name;
+      return Promise.all([
+        ghFetch(base + '/branches').then(function(resp){ return resp.json(); }).catch(function(){ return []; }),
+        ghFetch(base + '/tags').then(function(resp){ return resp.json(); }).catch(function(){ return []; })
+      ]).then(function(res){
+        return { branches: Array.isArray(res[0]) ? res[0].length : 0, tags: Array.isArray(res[1]) ? res[1].length : 0 };
+      });
+    });
 
-    function getLastPageCountFromLink(link) {
-      if (!link) return null;
+    // Aggregate languages
+    var langPromises = repos.map(function(r) {
+      return ghFetch('https://api.github.com/repos/' + org + '/' + r.name + '/languages')
+        .then(function(resp){ return resp.json(); }).catch(function(){ return {}; });
+    });
 
-      var match = link.match(/[?&]page=(\d+)>;\s*rel="last"/);
-      return match ? parseInt(match[1], 10) : null;
-    }
+    // 모든 API 완료 후 캐시 저장 + UI 업데이트
+    Promise.all([
+      Promise.all(commitPromises),
+      Promise.all(btPromises),
+      Promise.all(langPromises)
+    ]).then(function(results) {
+      var commitCounts = results[0];
+      var btResults = results[1];
+      var langResults = results[2];
 
-    async function fetchAllPages(url) {
-      var results = [];
-      var page = 1;
+      var totalCommits = commitCounts.reduce(function(a,b){ return a+b; }, 0);
 
-      while (true) {
-        var sep = url.indexOf('?') >= 0 ? '&' : '?';
-        var res = await ghFetch(url + sep + 'per_page=100&page=' + page);
+      var totalBranches = 0, totalTags = 0;
+      btResults.forEach(function(r){ totalBranches += r.branches; totalTags += r.tags; });
 
-        if (!res.ok) {
-          throw new Error('GitHub API error: ' + res.status);
-        }
-
-        var data = await res.json();
-
-        if (!Array.isArray(data)) {
-          break;
-        }
-
-        results = results.concat(data);
-
-        var link = res.headers.get('Link') || '';
-
-        if (link.indexOf('rel="next"') === -1) {
-          break;
-        }
-
-        page += 1;
-      }
-
-      return results;
-    }
-
-    async function getPaginatedCount(url) {
-      var sep = url.indexOf('?') >= 0 ? '&' : '?';
-      var res = await ghFetch(url + sep + 'per_page=1');
-
-      if (!res.ok) {
-        return 0;
-      }
-
-      var link = res.headers.get('Link') || '';
-      var lastPage = getLastPageCountFromLink(link);
-
-      if (lastPage !== null) {
-        return lastPage;
-      }
-
-      var data = await res.json();
-      return Array.isArray(data) ? data.length : 0;
-    }
-
-    function buildLanguageText(mergedLanguages) {
+      var merged = {};
+      langResults.forEach(function(d) {
+        if (typeof d !== 'object' || d === null) return;
+        for (var k in d) { if (d.hasOwnProperty(k)) merged[k] = (merged[k] || 0) + d[k]; }
+      });
       var langTotal = 0;
-
-      Object.keys(mergedLanguages).forEach(function (lang) {
-        langTotal += mergedLanguages[lang];
-      });
-
-      if (langTotal <= 0) {
-        return '💻 Languages: –';
+      for (var k in merged) langTotal += merged[k];
+      var langText = '';
+      if (langTotal > 0) {
+        var sorted = Object.keys(merged).sort(function(a,b){ return merged[b]-merged[a]; });
+        var parts = sorted.slice(0, 3).map(function(lang) {
+          return lang + ' ' + (merged[lang] / langTotal * 100).toFixed(1) + '%';
+        });
+        var icons = { 'Python':'🐍', 'Go':'🔵', 'JavaScript':'🟡', 'TypeScript':'🔷', 'Shell':'🐚', 'SCSS':'🎨', 'Makefile':'⚙️', 'Dockerfile':'🐳' };
+        var icon = icons[sorted[0]] || '💻';
+        langText = icon + ' ' + parts.join(' · ');
       }
 
-      var sorted = Object.keys(mergedLanguages).sort(function (a, b) {
-        return mergedLanguages[b] - mergedLanguages[a];
-      });
-
-      var icons = {
-        'Python': '🐍',
-        'Go': '🔵',
-        'JavaScript': '🟡',
-        'TypeScript': '🔷',
-        'Shell': '🐚',
-        'SCSS': '🎨',
-        'CSS': '🎨',
-        'HTML': '🌐',
-        'Makefile': '⚙️',
-        'Dockerfile': '🐳'
+      var statsData = {
+        repoCount: repos.length,
+        stars: totalStars,
+        forks: totalForks,
+        commits: totalCommits,
+        branches: totalBranches,
+        tags: totalTags,
+        langText: langText
       };
 
-      var topLang = sorted[0];
-      var icon = icons[topLang] || '💻';
+      // UI 업데이트
+      applyStats(statsData);
 
-      var parts = sorted.slice(0, 3).map(function (lang) {
-        var percent = (mergedLanguages[lang] / langTotal * 100).toFixed(1);
-        return lang + ' ' + percent + '%';
-      });
-
-      return icon + ' ' + parts.join(' · ');
-    }
-
-    async function collectStats() {
-      var statsEl = document.getElementById('gh-repo-stats');
-
-      if (!statsEl) {
-        return;
-      }
-
+      // localStorage에 캐시 저장
       try {
-        var cached = JSON.parse(localStorage.getItem(CACHE_KEY));
+        localStorage.setItem(CACHE_KEY, JSON.stringify({
+          timestamp: Date.now(),
+          data: statsData
+        }));
+      } catch(e) { /* localStorage 사용 불가 시 무시 */ }
+    });
 
-        if (cached && cached.timestamp && cached.data && Date.now() - cached.timestamp < CACHE_TTL) {
-          applyStats(cached.data);
-          return;
-        }
-      } catch (e) {
-        // localStorage 파싱 실패 시 무시
-      }
-
-      try {
-        var repos = await fetchAllPages('https://api.github.com/orgs/' + org + '/repos?type=public');
-
-        if (!Array.isArray(repos) || repos.length === 0) {
-          return;
-        }
-
-        var totalStars = 0;
-        var totalForks = 0;
-
-        repos.forEach(function (repo) {
-          totalStars += repo.stargazers_count || 0;
-          totalForks += repo.forks_count || 0;
-        });
-
-        var commitPromises = repos.map(function (repo) {
-          return getPaginatedCount(
-            'https://api.github.com/repos/' + org + '/' + repo.name + '/commits?since=2025-01-01T00:00:00Z'
-          ).catch(function () {
-            return 0;
-          });
-        });
-
-        var branchPromises = repos.map(function (repo) {
-          return getPaginatedCount(
-            'https://api.github.com/repos/' + org + '/' + repo.name + '/branches'
-          ).catch(function () {
-            return 0;
-          });
-        });
-
-        var tagPromises = repos.map(function (repo) {
-          return getPaginatedCount(
-            'https://api.github.com/repos/' + org + '/' + repo.name + '/tags'
-          ).catch(function () {
-            return 0;
-          });
-        });
-
-        var langPromises = repos.map(function (repo) {
-          return ghFetch('https://api.github.com/repos/' + org + '/' + repo.name + '/languages')
-            .then(function (res) {
-              if (!res.ok) return {};
-              return res.json();
-            })
-            .catch(function () {
-              return {};
-            });
-        });
-
-        var results = await Promise.all([
-          Promise.all(commitPromises),
-          Promise.all(branchPromises),
-          Promise.all(tagPromises),
-          Promise.all(langPromises)
-        ]);
-
-        var commitCounts = results[0];
-        var branchCounts = results[1];
-        var tagCounts = results[2];
-        var langResults = results[3];
-
-        var totalCommits = commitCounts.reduce(function (sum, value) {
-          return sum + value;
-        }, 0);
-
-        var totalBranches = branchCounts.reduce(function (sum, value) {
-          return sum + value;
-        }, 0);
-
-        var totalTags = tagCounts.reduce(function (sum, value) {
-          return sum + value;
-        }, 0);
-
-        var mergedLanguages = {};
-
-        langResults.forEach(function (langs) {
-          if (!langs || typeof langs !== 'object') return;
-
-          Object.keys(langs).forEach(function (lang) {
-            mergedLanguages[lang] = (mergedLanguages[lang] || 0) + langs[lang];
-          });
-        });
-
-        var statsData = {
-          repoCount: repos.length,
-          stars: totalStars,
-          forks: totalForks,
-          commits: totalCommits,
-          branches: totalBranches,
-          tags: totalTags,
-          langText: buildLanguageText(mergedLanguages)
-        };
-
-        applyStats(statsData);
-
-        try {
-          localStorage.setItem(CACHE_KEY, JSON.stringify({
-            timestamp: Date.now(),
-            data: statsData
-          }));
-        } catch (e) {
-          // localStorage 저장 실패 시 무시
-        }
-
-      } catch (error) {
-        console.error('GitHub stats fetch failed:', error);
-      }
-    }
-
-    collectStats();
-  })();
-});
+  }).catch(function(){ /* API rate limit or network error — keep defaults */ });
+})();
 
 // ── Initial reveal ──
 triggerReveal();
