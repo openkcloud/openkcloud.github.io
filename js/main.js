@@ -725,8 +725,24 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function formatNumber(value) {
-      return Number(value || 0).toLocaleString('en-US');
+    if (
+      value === undefined ||
+      value === null ||
+      value === '' ||
+      value === '–' ||
+      value === '-'
+    ) {
+      return '–';
     }
+
+    var num = Number(value);
+
+    if (!Number.isFinite(num)) {
+      return '–';
+    }
+
+    return num.toLocaleString('en-US');
+  }
 
     function applyStats(data) {
       var el = document.getElementById('gh-repo-stats');
@@ -737,7 +753,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (spans[0]) spans[0].textContent = '⭐ Stars: ' + formatNumber(data.stars);
         if (spans[1]) spans[1].textContent = '🍴 Forks: ' + formatNumber(data.forks);
         if (spans[2]) spans[2].textContent = '📝 Commits: ' + formatNumber(data.commits);
-        if (spans[3]) spans[3].textContent = '🌿 ' + formatNumber(data.branches) + ' Branch · ' + formatNumber(data.tags) + ' Tag';
+        if (spans[3]) {spans[3].textContent ='🌿 ' + formatNumber(data.branches) + ' Branch · ' + formatNumber(data.tags) + ' Tag';}
         if (spans[4]) spans[4].textContent = data.langText || '💻 Languages: –';
       }
 
@@ -754,12 +770,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function applyFallback() {
       applyStats({
-        repoCount: '–',
-        stars: '–',
-        forks: '–',
-        commits: '–',
-        branches: '–',
-        tags: '–',
+        repoCount: null,
+        stars: null,
+        forks: null,
+        commits: null,
+        branches: null,
+        tags: null,
         langText: '💻 Languages: –'
       });
     }
