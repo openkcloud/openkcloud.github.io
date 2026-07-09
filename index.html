@@ -38,7 +38,7 @@
         <h1 class="hero-title">open<span class="hl">K</span>cloud<br>Platform</h1>
         <p class="hero-sub"><span style="white-space:nowrap;">AI반도체(NPU, PIM, GPU) 기반 하이퍼스케일 클라우드 서비스 플랫폼.</span> <span style="white-space:nowrap;">초거대 AI 모델 서비스의 최적 성능 확보부터 운영 비용 최소화까지</span><br>통합 지원합니다.</p>
         <div class="hero-btns">
-          <a href="#" class="btn-primary" onclick="showPage('download');return false;">↓ &nbsp;v0.1.0 다운로드</a>
+          <a href="#" class="btn-primary" onclick="showPage('download');return false;">↓ &nbsp;v0.1.5 다운로드</a>
           <a href="https://github.com/openKcloud" target="_blank" rel="noopener" class="btn-outline">⌥ &nbsp;Github 보기</a>
         </div>
         <p class="hero-version">Stable: <span>v0.1.5</span> &nbsp;·&nbsp; Apache 2.0 &nbsp;·&nbsp; K-Cloud</p>
@@ -63,7 +63,7 @@
   <!-- Stats -->
   <div class="stats-row reveal">
     <div class="stat-cell"><div class="stat-num">6</div><div class="stat-label">서브모듈</div></div>
-    <div class="stat-cell"><div class="stat-num">v0.1</div><div class="stat-label">최신 릴리스</div></div>
+    <div class="stat-cell"><div class="stat-num">v0.1.5</div><div class="stat-label">최신 릴리스</div></div>
     <div class="stat-cell"><div class="stat-num">100%</div><div class="stat-label">오픈소스</div></div>
     <div class="stat-cell"><div class="stat-num">K8s</div><div class="stat-label">Cloud Native</div></div>
   </div>
@@ -1647,6 +1647,39 @@
     <div class="dl-cards">
       <div class="dl-card featured">
         <div class="dl-badge">LATEST</div>
+        <div class="dl-version">v0.1.5</div>
+        <div class="dl-title">openKcloud Platform</div>
+        <p class="dl-desc">국내 AI반도체 가속기 지원 확대, 드라이버 업그레이드 안정성 강화, NPU 메트릭 수집, 비용·전력 최적화, MLPerf 평가 기능을 고도화 </p>
+        <div class="dl-info">
+          <div class="dl-info-item"><strong>2026.06.30</strong>릴리스 날짜</div>
+          <div class="dl-info-item"><strong>Apache 2.0</strong>라이선스</div>
+          <div class="dl-info-item"><strong>Kubernetes 1.28+</strong>요구사항</div>
+        </div>
+        <div class="dl-btn"><a href="https://github.com/openkcloud/openkcloud/archive/refs/tags/v0.1.5.tar.gz" class="btn-primary" target="_blank" rel="noopener">↓ &nbsp;Source (.tar.gz)</a>   
+        </div>
+        <div class="dl-btn"><a href="https://github.com/openkcloud/openkcloud/archive/refs/tags/v0.1.5.zip" class="btn-primary" target="_blank" rel="noopener">↓ &nbsp;Source (.zip)</a>   
+        </div>           
+      </div>      
+    </div>
+    <div class="changelog-item">
+      <div class="changelog-ver">v0.1.5</div>
+      <div class="changelog-date">2026.06</div>
+      <ul class="changelog-list">
+        <li>kcloud-operator: FuriosaAI RNGD, Rebellions ATOM+ 가속기 지원 및 드라이버 롤링 업그레이드 기능 추가</li>
+        <li>kcloud-cyborg: Rebellions NPU 탐지 및 메타정보 수집 기능 지원</li>
+        <li>kcloud-nova: 가속기 인식 스케줄링(product-fit) 코드 개선</li>
+        <li>kcloud-monitor: FuriosaAI NPU 메트릭 수집, 공통 응답 규격 표준화, SSE 스트리밍 안정화</li>
+        <li>kcloud-cost-optimizer: 워크로드 메트릭 집계 및 분석 도구 지원</li>
+        <li>kcloud-cost-scheduler: Admission Webhook 기반 정책 자동 적용 및 비용/전력 계산 최적화 엔진 지원</li>
+        <li>kcloud-infra-optimization: 하드웨어 벤치마크 및 워커 노드 실시간 전력 수집 지원</li>
+        <li>kcloud-cost-estimator: XGBoost 기반 ML 전력 예측기 및 비용 분석 기능 지원</li>
+        <li>kcloud-mlperf: MMLU-Pro 평가, 국내 NPU 지원, Kubernetes Baremetal 벤치마크 자동화</li>
+        <li>kcloud-requirements/loci: OpenStack 2024.1 기반 저장소 개설 및 의존성 문제 수정</li>
+      </ul>
+    </div>
+    <div class="dl-cards">
+      <div class="dl-card featured">
+        <div class="dl-badge">PREVIOUS</div>
         <div class="dl-version">v0.1.0</div>
         <div class="dl-title">openKcloud Platform</div>
         <p class="dl-desc">이종 AI반도체 기반 VM·컨테이너 서비스,비용 기반 스케줄러 및 전력 최적화 모듈, Kubernetes CRD 기반 AI반도체 자원 오퍼레이터 </p>
