@@ -986,7 +986,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     collectStats();
   })();
-})();
+});
 
 // ── Initial reveal ──
 triggerReveal();
