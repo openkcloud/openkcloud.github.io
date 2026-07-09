@@ -235,6 +235,7 @@ var threadData = {};
 // Mapping: threadId → news-data key + forum-specific overrides
 
 var threadNewsMap = [
+  { id: 7, newsKey: 'news-v015',        avatar: 'K', avatarClass: 'avatar-teal',   author: 'openKcloud 커뮤니티', date: '2026-06-30', cat: 'announce' },
   { id: 1, newsKey: 'news-collabday1-2026',   avatar: 'K', avatarClass: 'avatar-blue',   author: 'openKcloud 커뮤니티', date: '2026-05-01', cat: 'announce' },
   { id: 2, newsKey: 'news-collabday-2026',   avatar: 'K', avatarClass: 'avatar-blue',   author: 'openKcloud 커뮤니티', date: '2026-05-01', cat: 'announce' },
   { id: 3, newsKey: 'news-ecosystem-1', avatar: 'K', avatarClass: 'avatar-green',  author: 'openKcloud 커뮤니티', date: '2025-12-25', cat: 'announce' },
@@ -324,7 +325,7 @@ document.querySelectorAll('.forum-thread').forEach(function(el) {
 });
 
 //커뮤니티 게시글 갯수 + 1
-var nextThreadId = 7;
+var nextThreadId = 8;
 
 // ── localStorage persistence helpers ──
 function saveUserPosts() {

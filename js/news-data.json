@@ -28,6 +28,96 @@
       { "type": "link", "text": "⬇️ GitHub에서 다운로드", "href": "https://github.com/openkcloud/openkcloud/releases" }
     ]
   },
+  "news-v015": {
+    "cat": "release",
+    "date": "2026.06.30",
+    "tag": "RELEASE",
+    "tagClass": "tag-release",
+    "version": "v0.1.5",
+    "title": "openKcloud v0.1.5 공식 릴리스",
+    "body": [
+      {
+        "type": "highlight",
+        "text": "🎉 openKcloud v0.1.5는 v0.1.0 초기 릴리스 이후 국내 AI반도체 가속기 지원 확대, 드라이버 업그레이드 안정성 강화, NPU 메트릭 수집, 비용·전력 최적화, MLPerf 평가 기능을 고도화한 업데이트입니다."
+      },
+
+      {
+        "type": "section",
+        "title": "주요 신기능"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "<strong>kcloud-svc</strong> — FuriosaAI RNGD 및 Rebellions ATOM+ 가속기 지원 확대",
+          "<strong>kcloud-svc</strong> — 노드 디바이스 감지 및 드라이버 롤링 업그레이드 기능 지원",
+          "<strong>kcloud-opt</strong> — FuriosaAI NPU 메트릭 수집 및 워크로드 메트릭 분석 도구 지원",
+          "<strong>kcloud-opt</strong> — 비용/전력 계산 최적화 엔진, Prometheus 모니터링, Helm 원클릭 배포 지원",
+          "<strong>kcloud-opt</strong> — gRPC 기반 하드웨어 벤치마크 및 워커 노드 실시간 전력 수집 지원",
+          "<strong>kcloud-llm</strong> — MMLU-Pro 평가 및 국내 NPU 기반 MLPerf 평가 기능 지원",
+          "<strong>kcloud-mnt</strong> — 통합 관리 프레임워크 개선 예정"
+        ]
+      },
+
+      {
+        "type": "section",
+        "title": "프레임워크별 주요 변경사항"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "<strong>kcloud-svc</strong> — kcloud-operator에서 FuriosaAI RNGD, Rebellions ATOM+ 가속기와 노드 디바이스 감지 기능을 지원합니다.",
+          "<strong>kcloud-svc</strong> — kcloud-cyborg에서 Rebellions NPU 탐지 및 메타정보 수집 기능을 지원합니다.",
+          "<strong>kcloud-svc</strong> — kcloud-nova의 가속기 인식 스케줄링(product-fit) 코드가 개선되었습니다.",
+          "<strong>kcloud-opt</strong> — kcloud-monitor에서 FuriosaAI NPU 메트릭 수집, 공통 응답 규격 표준화, SSE 스트리밍 안정화가 반영되었습니다.",
+          "<strong>kcloud-opt</strong> — kcloud-cost-optimizer, kcloud-cost-scheduler, kcloud-cost-estimator를 통해 워크로드 분석, 정책 자동 적용, 비용/전력 최적화 기능이 강화되었습니다.",
+          "<strong>kcloud-llm</strong> — kcloud-mlperf에서 MMLU-Pro 평가와 FuriosaAI RNGD, Rebellions ATOM+ 기반 국내 NPU 평가를 지원합니다.",
+          "<strong>kcloud-mnt</strong> — kcloud-manage는 후속 릴리스에서 세부 변경 사항이 공개될 예정입니다."
+        ]
+      },
+      {
+        "type": "section",
+        "title": "개선 사항"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "<strong>kcloud-operator</strong> — DIP 삭제 시 드라이버 관련 상태 정보 개선",
+          "<strong>kcloud-nova</strong> — 가속기 인식 스케줄링(product-fit) 코드 개선",
+          "<strong>kcloud-monitor</strong> — 공통 응답 규격 표준화 및 SSE(Server-Sent Events) 스트리밍 안정화",
+          "<strong>kcloud-monitor</strong> — 운영성·관측성 강화 및 probes, K8s, API key, cache warmup 등 배포 안정화",
+          "<strong>kcloud-mlperf</strong> — Kubernetes Baremetal 벤치마크 자동화"
+        ]
+      },
+
+      {
+        "type": "section",
+        "title": "버그 수정"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "<strong>kcloud-requirements</strong> — OpenStack Requirements 2024.1 버전 관리 관련 의존성 문제 수정",
+          "<strong>kcloud-loci</strong> — OpenStack Loci 2024.1 버전 관리 관련 의존성 문제 수정"
+        ]
+      },
+      {
+        "type": "section",
+        "title": "시스템 요구 사항"
+      },
+      {
+        "type": "p",
+        "text": "Ubuntu 22.04 LTS · Kubernetes v1.28 이상 권장 · OpenStack 2024.1 기반 구성 요소 · FuriosaAI RNGD · Rebellions ATOM+ · Prometheus/Grafana 모니터링 환경 권장"
+      },
+
+      {
+        "type": "spacer"
+      },
+      {
+        "type": "link",
+        "text": "⬇️ GitHub에서 다운로드",
+       "href": "https://github.com/openkcloud/openkcloud/releases"
+      }     ]
+  },
   "news-ecosystem": {
     "cat": "blog",
     "date": "2025.02.20",
