@@ -1318,3 +1318,7 @@ nav {
   .issue-item { grid-template-columns: 24px 1fr; }
   .forum-thread { grid-template-columns: 40px 1fr; }
 }
+
+.previous-version {
+  margin-top: 48px;
+}
