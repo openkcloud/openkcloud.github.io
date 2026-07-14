@@ -1417,24 +1417,40 @@
 
     <!-- Filter tabs -->
     <div class="news-filter-bar">
-      <button class="news-filter-btn active" onclick="filterNews(this,'all')">전체 <span class="news-count-badge">8</span></button>
-      <button class="news-filter-btn" onclick="filterNews(this,'release')">🚀 릴리스 <span class="news-count-badge">1</span></button>
-      <button class="news-filter-btn" onclick="filterNews(this,'blog')">📑 공지 &amp;💻 블로그 <span class="news-count-badge">5</span></button>
+      <button class="news-filter-btn active" onclick="filterNews(this,'all')">전체 <span class="news-count-badge">11</span></button>
+      <button class="news-filter-btn" onclick="filterNews(this,'release')">🚀 릴리스 <span class="news-count-badge">2</span></button>
+      <button class="news-filter-btn" onclick="filterNews(this,'blog')">📑 공지 &amp;💻 블로그 <span class="news-count-badge">6</span></button>
       <button class="news-filter-btn" onclick="filterNews(this,'roadmap')">🧭 로드맵 <span class="news-count-badge">1</span></button>
-      <button class="news-filter-btn" onclick="filterNews(this,'media')">📰 미디어 <span class="news-count-badge">1</span></button>
+      <button class="news-filter-btn" onclick="filterNews(this,'media')">📰 미디어 <span class="news-count-badge">2</span></button>
     </div>
-
-    <!-- Cards grid -->
     <div class="news-grid" id="news-grid">
-      <!-- BLOG 7 -->
-      <div class="news-card reveal" data-cat="blog" onclick="openNewsDrawer('news-v015')">
+      <!-- BLOG 6 -->
+      <div class="news-card reveal" data-cat="blog" onclick="openNewsDrawer('news-PoC-Service-2026')">
         <div class="news-card-img">
-           <img src="images/openkcloud_v0.1.5.png" alt="openKcloud CollabDay1 2026" class="news-card-thumb">
+           <img src="images/poc_system.png" alt="PoC-Service-2026" class="news-card-thumb">
+        </div>
+        <div class="news-card-body">
+          <div class="news-meta">
+            <span class="news-date">2026.07.09</span>
+            <span class="news-tag-pill tag-blog">공지</span>
+          </div>
+          <div class="news-card-title">openKcloud 1차 시범서비스 오픈</div>
+          <p class="news-card-excerpt">openKcloud 플랫폼 개발 결과물 기능 통합 및 상호 운영 지원을 위한 openKcloud 커뮤니티 내 주 개발자들을 대상으로 openKcloud 1차 시범서비스 오픈</p>
+          <div class="news-card-footer">
+            <span class="news-read-more">상세 보기</span>
+            <span class="news-source-badge">시범서비스</span>
+          </div>
+        </div>
+      </div>
+      <!-- RELEASE 2 -->
+      <div class="news-card reveal" data-cat="release" onclick="openNewsDrawer('news-v015')">
+        <div class="news-card-img">
+           <img src="images/openkcloud_v0.1.5.png" alt="openKcloud_v0.1.5" class="news-card-thumb">
         </div>
         <div class="news-card-body">
           <div class="news-meta">
             <span class="news-date">2026.06.30</span>
-            <span class="news-tag-pill tag-blog">RELEASE</span>
+            <span class="news-tag-pill tag-release">RELEASE</span>
           </div>
           <div class="news-card-title">openKcloud v0.1.5 공식 릴리스</div>
           <p class="news-card-excerpt">openKcloud v0.1.5는 v0.1.0 초기 릴리스 이후 국내 AI반도체 가속기 지원 확대, 드라이버 업그레이드 안정성 강화, NPU 메트릭 수집, 비용·전력 최적화, MLPerf 평가 기능을 고도화한 업데이트</p>
@@ -1444,15 +1460,15 @@
           </div>
         </div>
       </div>
-      <!-- BLOG 6 -->
-      <div class="news-card reveal" data-cat="blog" onclick="openNewsDrawer('news-collabday1-2026')">
+      <!-- MEDIA 2 -->
+      <div class="news-card reveal" data-cat="media" onclick="openNewsDrawer('news-collabday1-2026')">
         <div class="news-card-img">
            <img src="images/openkcloud_collabday1_2026.png" alt="openKcloud CollabDay1 2026" class="news-card-thumb">
         </div>
         <div class="news-card-body">
           <div class="news-meta">
             <span class="news-date">2026.06.05</span>
-            <span class="news-tag-pill tag-blog">미디어</span>
+            <span class="news-tag-pill tag-media">미디어</span>
           </div>
           <div class="news-card-title">openKcloud CollabDay 2026 성황리 개최</div>
           <p class="news-card-excerpt">클라우드 서비스 제공사(CSP), 관리형 서비스 제공사(MSP), 데이터센터 운영 사업자, AI 서비스 사업자 등 다양한 수요기관의 높은 관심과 적극적인 참여</p>
