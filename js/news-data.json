@@ -45,9 +45,9 @@
         "대상 — openKcloud 커뮤니티 내 주요개발자",
         "목적 — openKcloud 플랫폼 개발 결과물 기능 통합 및 상호 운영 지원",
         "현황 — 25G 및 10G 기반 데이터 및 관리 네트워크 인프라 구성",
-        "    — 물리 서버 12EA 기반 AI반도체 클라우드 컴퓨팅 인프라 구성", 
-        "    — NVIDIA L40S (2ea), Furiosa RNGD (1ea), Rebellion Atom+ (1ea) 자원 제공",
-        "    — 원활한 외부 접근 환경 제공을 위한 외부망(10G) 연동 지원"
+        "<span class='news-sub-indent'>— 물리 서버 12EA 기반 AI반도체 클라우드 컴퓨팅 인프라 구성</span>",
+        "<span class='news-sub-indent'>— NVIDIA L40S (2ea), Furiosa RNGD (1ea), Rebellion Atom+ (1ea) 자원 제공</span>",
+        "<span class='news-sub-indent'>— 원활한 외부 접근 환경 제공을 위한 외부망(10G) 연동 지원</span>"
       ]},
       {
         "type": "image",

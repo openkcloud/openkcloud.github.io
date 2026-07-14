@@ -1322,3 +1322,7 @@ nav {
 .previous-version {
   margin-top: 48px;
 }
+.news-sub-indent {
+  display: inline-block;
+  padding-left: 42px;
+}
