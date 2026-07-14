@@ -20,7 +20,8 @@ function filterNews(btn, cat) {
   });
 }
 
-async function openNewsDrawer(newsId) {
+async function openNewsDrawer(newsId, opts) {
+  opts = opts || {};
   const newsData = await getNewsData();
   const item = newsData[newsId];
   if (!item) return;
@@ -156,12 +157,23 @@ async function openNewsDrawer(newsId) {
   document.getElementById('news-drawer-overlay')?.classList.add('open');
   document.getElementById('news-drawer')?.classList.add('open');
   document.body.style.overflow = 'hidden';
+
+  // 기사 직링크(#news/<id>)로 URL 갱신 — 라우터가 연 경우는 제외
+  if (!opts.fromRouter && location.hash !== '#news/' + newsId) {
+    location.hash = '#news/' + newsId;
+  }
 }
 
-function closeNewsDrawer() {
+function closeNewsDrawer(opts) {
+  opts = opts || {};
   document.getElementById('news-drawer-overlay')?.classList.remove('open');
   document.getElementById('news-drawer')?.classList.remove('open');
   document.body.style.overflow = '';
+
+  // 기사 링크에서 목록 링크(#news)로 되돌림 — 라우터가 닫은 경우는 제외
+  if (!opts.fromRouter && location.hash.indexOf('#news/') === 0) {
+    location.hash = '#news';
+  }
 }
 
 // ── Logo inject ──
@@ -170,15 +182,46 @@ document.getElementById('nav-logo-img').src = 'data:image/jpeg;base64,' + LOGO_B
 updateForumCount();
 
 // ── Page navigation ──
-function showPage(id) {
+function showPage(id, opts) {
+  opts = opts || {};
+  const pageEl = document.getElementById('page-' + id);
+  if (!pageEl) return;
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + id).classList.add('active');
+  pageEl.classList.add('active');
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
   const navEl = document.getElementById('nav-' + id);
   if (navEl) navEl.classList.add('active');
   window.scrollTo(0, 0);
   triggerReveal();
+  // 사용자 조작(클릭)으로 전환된 경우 URL 해시를 갱신해 직링크로 공유 가능하게 함
+  if (!opts.fromRouter && location.hash.split('/')[0] !== '#' + id) {
+    location.hash = '#' + id;
+  }
 }
+// ── Hash 기반 직링크(Deep link) 라우팅 ──
+const ROUTE_PAGES = ['home', 'github', 'overview', 'news', 'community', 'download'];
+
+function handleRoute() {
+  const raw = (location.hash || '').replace(/^#/, '');
+  const [page, sub] = raw.split('/');
+
+  // 알 수 없는 경로는 홈으로
+  const target = ROUTE_PAGES.includes(page) ? page : 'home';
+  showPage(target, { fromRouter: true });
+
+  if (target === 'news') {
+    if (sub) {
+      openNewsDrawer(sub, { fromRouter: true });
+    } else {
+      closeNewsDrawer({ fromRouter: true });
+    }
+  } else {
+    closeNewsDrawer({ fromRouter: true });
+  }
+}
+
+window.addEventListener('hashchange', handleRoute);
+
 // ── Doc section switching ──
 function setDoc(navEl, docId) {
   document.querySelectorAll('.doc-section-content').forEach(d => d.style.display = 'none');
@@ -940,3 +983,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // ── Initial reveal ──
 triggerReveal();
+
+// ── 최초 로드 시 URL 해시에 맞는 페이지/기사로 이동 (직링크 진입) ──
+if (location.hash) {
+  handleRoute();
+}
