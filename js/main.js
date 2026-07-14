@@ -218,12 +218,20 @@ function handleRoute() {
   } else {
     closeNewsDrawer({ fromRouter: true });
   }
+
+  // Overview 문서 직링크: #overview/<docId> (예: #overview/doc-release)
+  if (target === 'overview') {
+    // 유효한 문서 id가 아니면 기본 문서(소개)로
+    const docId = (sub && document.getElementById(sub)) ? sub : 'doc-intro';
+    setDoc(null, docId, { fromRouter: true });
+  }
 }
 
 window.addEventListener('hashchange', handleRoute);
 
 // ── Doc section switching ──
-function setDoc(navEl, docId) {
+function setDoc(navEl, docId, opts) {
+  opts = opts || {};
   document.querySelectorAll('.doc-section-content').forEach(d => d.style.display = 'none');
   const el = document.getElementById(docId);
   if (el) el.style.display = 'block';
@@ -235,6 +243,11 @@ function setDoc(navEl, docId) {
     target = document.querySelector(`.nav-item[onclick*="${docId}"], .nav-sub[onclick*="${docId}"]`);
   }
   if (target) target.classList.add('active');
+
+  // 문서 직링크(#overview/<docId>)로 URL 갱신 — 라우터가 연 경우는 제외
+  if (!opts.fromRouter && location.hash !== '#overview/' + docId) {
+    location.hash = '#overview/' + docId;
+  }
 }
 
 // ── Sidebar group toggle ──
