@@ -291,6 +291,7 @@ var threadData = {};
 // Mapping: threadId → news-data key + forum-specific overrides
 
 var threadNewsMap = [
+  { id: 9, newsKey: 'news-k-cloud-workshop-2026',        avatar: 'K', avatarClass: 'avatar-blue',   author: 'openKcloud 커뮤니티', date: '2026-07-22', cat: 'announce' },
   { id: 8, newsKey: 'news-PoC-Service-2026',        avatar: 'K', avatarClass: 'avatar-blue',   author: 'openKcloud 커뮤니티', date: '2026-07-09', cat: 'announce' },
   { id: 7, newsKey: 'news-v015',        avatar: 'K', avatarClass: 'avatar-teal',   author: 'openKcloud 커뮤니티', date: '2026-06-30', cat: 'release' },
   { id: 1, newsKey: 'news-collabday1-2026',   avatar: 'K', avatarClass: 'avatar-blue',   author: 'openKcloud 커뮤니티', date: '2026-05-01', cat: 'announce' },

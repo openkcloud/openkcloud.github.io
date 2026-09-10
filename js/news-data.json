@@ -410,6 +410,43 @@
         "alt": "openKcloud CollabDay 2026 News"
       }
     ]
+  },
+  "news-k-cloud-workshop-2026": {
+    "cat": "blog",
+    "date": "2026.07.22",
+    "tag": "공지",
+    "tagClass": "tag-blog",
+    "title": "\"클라우드 분과\" 유관과제 워크샵 개최",
+    "body": [
+      {
+        "type": "highlight",
+        "text": "🎉 'AI반도체 클라우드 플랫폼 구축 및 최적화 기술 개발' 과제(대표과제, openKcloud)를 중심으로, K-클라우드 사업 클라우드 분과 내 유관과제 간 기술 개발 방향을 공유하고 단계적 기술 통합을 위한 업무 협조 체계를 마련하는 워크샵을 개최했습니다."
+      },
+      { "type": "section", "title": "워크샵 개요" },
+      { "type": "ul", "items": [
+        "일시 — 2026년 7월 15일(수) 11:30 ~ 17:30",
+        "장소 — 오케스트로 회의실",
+        "대상 — 클라우드 분과 유관과제 기관책임자 및 주요 연구기술 실무자 (ETRI, KETI, 오케스트로 등)"
+      ]},
+      {
+        "type": "image",
+        "src": "images/k-cloud_workshop_2026_group.jpg",
+        "alt": "K-클라우드 분과 유관과제 워크샵 참석자 단체 사진"
+      },
+      { "type": "section", "title": "발표 프로그램" },
+      { "type": "ul", "items": [
+        "<strong>AI반도체 클라우드 플랫폼 구축 및 최적화 기술 개발</strong> — ETRI (최현화)",
+        "<strong>AI반도체 클라우드를 위한 고속 병렬 파일시스템 기술 개발</strong> — KETI (김동민)",
+        "<strong>AI반도체 특화 클라우드 네이티브 SW 스택 및 모델 허브 기술 개발</strong> — 오케스트로 AGI (윤호영)",
+        "<strong>AI반도체 클라우드 자원관리 및 서비스 제공 플랫폼 기술 개발</strong> — ETRI (강동재)"
+      ]},
+      {
+        "type": "image",
+        "src": "images/k-cloud_workshop_2026_session.jpg",
+        "alt": "K-클라우드 분과 유관과제 워크샵 발표 현장"
+      }
+    ]
+
   }
 
 

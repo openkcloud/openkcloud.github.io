@@ -78,6 +78,17 @@
       </p>
 
       <div class="latest-posts-grid">
+        <a href="#" class="latest-post-card" onclick="showPage('news');openNewsDrawer('news-k-cloud-workshop-2026');return false;">
+          <div class="latest-post-img">
+            <img src="images/k-cloud_workshop_2026.jpg" alt="클라우드 분과 유관과제 워크샵 개최">
+          </div>
+          <div class="latest-post-content">
+            <span class="latest-post-type blog">Workshop</span>
+            <div class="latest-post-title">K-클라우드 기술개발 사업 “클라우드 분과” 유관과제와 워크샵을 진행했습니다.</div>
+           <div class="latest-post-date">2026.07.22</div>
+          </div>
+        </a>
+
         <a href="#" class="latest-post-card" onclick="showPage('news');openNewsDrawer('news-PoC-Service-2026');return false;">
           <div class="latest-post-img">
             <img src="images/poc_system.png" alt="openKcloud 1st PoC Service">
@@ -109,18 +120,6 @@
             <div class="latest-post-date">2026.06.05</div>
           </div>          
         </a>
-
-        <a href="#" class="latest-post-card" onclick="showPage('news');openNewsDrawer('news-collabday-2026');return false;">
-          <div class="latest-post-img">
-            <img src="images/26collabday.png" alt="openKcloud CollabDay 2026 개최">
-          </div>
-          <div class="latest-post-content">
-            <span class="latest-post-type conference">CONFERENCE</span>
-            <div class="latest-post-title">openKcloud CollabDay 2026 워크샵이 진행될 예정입니다. </div>
-           <div class="latest-post-date">2026.05.18</div>
-          </div>
-        </a>
-                    
       </div>
 
       <div class="latest-posts-more">
@@ -1416,13 +1415,31 @@
 
     <!-- Filter tabs -->
     <div class="news-filter-bar">
-      <button class="news-filter-btn active" onclick="filterNews(this,'all')">전체 <span class="news-count-badge">11</span></button>
+      <button class="news-filter-btn active" onclick="filterNews(this,'all')">전체 <span class="news-count-badge">12</span></button>
       <button class="news-filter-btn" onclick="filterNews(this,'release')">🚀 릴리스 <span class="news-count-badge">2</span></button>
-      <button class="news-filter-btn" onclick="filterNews(this,'blog')">📑 공지 &amp;💻 블로그 <span class="news-count-badge">6</span></button>
+      <button class="news-filter-btn" onclick="filterNews(this,'blog')">📑 공지 &amp;💻 블로그 <span class="news-count-badge">7</span></button>
       <button class="news-filter-btn" onclick="filterNews(this,'roadmap')">🧭 로드맵 <span class="news-count-badge">1</span></button>
       <button class="news-filter-btn" onclick="filterNews(this,'media')">📰 미디어 <span class="news-count-badge">2</span></button>
     </div>
     <div class="news-grid" id="news-grid">
+      <!-- BLOG 7 -->
+      <div class="news-card reveal" data-cat="blog" onclick="openNewsDrawer('news-k-cloud-workshop-2026')">
+        <div class="news-card-img">
+           <img src="images/k-cloud_workshop_2026.jpg" alt="k-cloud workshop" class="news-card-thumb">
+        </div>
+        <div class="news-card-body">
+          <div class="news-meta">
+            <span class="news-date">2026.07.22</span>
+            <span class="news-tag-pill tag-blog">공지</span>
+          </div>
+          <div class="news-card-title">"클라우드 분과" 유관과제 워크샵 개최</div>
+          <p class="news-card-excerpt">K-클라우드 기술개발 사업 “클라우드 분과” 유관과제와 워크샵 개최로 과제별 요구사항 수집 및 단계적 기술 통합을 위한 업무 협조 체계 마련</p>
+          <div class="news-card-footer">
+            <span class="news-read-more">상세 보기</span>
+            <span class="news-source-badge">워크샵</span>
+          </div>
+        </div>
+      </div>
       <!-- BLOG 6 -->
       <div class="news-card reveal" data-cat="blog" onclick="openNewsDrawer('news-PoC-Service-2026')">
         <div class="news-card-img">
@@ -1820,6 +1837,25 @@
         <span style="border-left:1px solid var(--border);padding-left:12px;">그 외 — 게시자 닉네임 첫 글자</span>
       </div>
       <div class="forum-threads">
+        <div class="forum-thread pinned" data-cat="announce" onclick="openThreadDetail(9)">
+          <div class="thread-avatar avatar-blue">K</div>
+          <div class="thread-body">
+            <div class="thread-title-row">
+              <span class="thread-pin">📌</span>
+              <span class="thread-title">📢 "클라우드 분과" 유관과제 워크샵 개최(07/15)</span>
+              <span class="thread-badge badge-announce">ANNOUNCE</span>
+            </div>
+            <div class="thread-meta">
+              <span>openKcloud 커뮤니티</span>
+              <span>·</span>
+              <span>K-클라우드 기술개발 사업 “클라우드 분과” 유관과제와 워크샵 개최로 과제별 요구사항 수집 및 단계적 기술 통합을 위한 업무 협조 체계 마련</span>
+            </div>
+          </div>
+          <div class="thread-stats">
+            <span class="thread-stat-num">💬 0</span>
+            <span class="thread-time">2026-07-22</span>
+          </div>
+        </div>
         <div class="forum-thread pinned" data-cat="announce" onclick="openThreadDetail(8)">
           <div class="thread-avatar avatar-blue">K</div>
           <div class="thread-body">
