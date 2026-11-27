@@ -38,10 +38,10 @@
         <h1 class="hero-title">open<span class="hl">K</span>cloud<br>Platform</h1>
         <p class="hero-sub"><span style="white-space:nowrap;">AI반도체(NPU, PIM, GPU) 기반 하이퍼스케일 클라우드 서비스 플랫폼.</span> <span style="white-space:nowrap;">초거대 AI 모델 서비스의 최적 성능 확보부터 운영 비용 최소화까지</span><br>통합 지원합니다.</p>
         <div class="hero-btns">
-          <a href="#" class="btn-primary" onclick="showPage('download');return false;">↓ &nbsp;v0.1.5 다운로드</a>
+          <a href="#" class="btn-primary" onclick="showPage('download');return false;">↓ &nbsp;v0.2.0 다운로드</a>
           <a href="https://github.com/openKcloud" target="_blank" rel="noopener" class="btn-outline">⌥ &nbsp;Github 보기</a>
         </div>
-        <p class="hero-version">Stable: <span>v0.1.5</span> &nbsp;·&nbsp; Apache 2.0 &nbsp;·&nbsp; K-Cloud</p>
+        <p class="hero-version">Stable: <span>v0.2.0</span> &nbsp;·&nbsp; Apache 2.0 &nbsp;·&nbsp; K-Cloud</p>
       </div>
       <div class="hero-visual">
         <div class="hero-diagram">
@@ -63,7 +63,7 @@
   <!-- Stats -->
   <div class="stats-row reveal">
     <div class="stat-cell"><div class="stat-num">6</div><div class="stat-label">서브모듈</div></div>
-    <div class="stat-cell"><div class="stat-num">v0.1.5</div><div class="stat-label">최신 릴리스</div></div>
+    <div class="stat-cell"><div class="stat-num">v0.2.0</div><div class="stat-label">최신 릴리스</div></div>
     <div class="stat-cell"><div class="stat-num">100%</div><div class="stat-label">오픈소스</div></div>
     <div class="stat-cell"><div class="stat-num">K8s</div><div class="stat-label">Cloud Native</div></div>
   </div>
@@ -78,6 +78,17 @@
       </p>
 
       <div class="latest-posts-grid">
+        <a href="#" class="latest-post-card" onclick="showPage('news');openNewsDrawer('news-v020');return false;">
+          <div class="latest-post-img">
+            <img src="images/openkcloud_v0.2.0.png" alt="openkcloud_v0.2.0">
+          </div>
+          <div class="latest-post-content">
+            <span class="latest-post-type release">RELEASE</span>
+            <div class="latest-post-title">openKcloud v0.2.0 공식 릴리즈 합니다. Github에 공개되었습니다.</div>
+            <div class="latest-post-date">2026.11.27</div>
+          </div>
+        </a>
+
         <a href="#" class="latest-post-card" onclick="showPage('news');openNewsDrawer('news-openKcloud-DevDay-2026-before');return false;">
           <div class="latest-post-img">
             <img src="images/devday2026_recru.png" alt="openKcloud DevDay 2026 개최 안내">
@@ -111,16 +122,6 @@
           </div>
         </a>
 
-        <a href="#" class="latest-post-card" onclick="showPage('news');openNewsDrawer('news-v015');return false;">
-          <div class="latest-post-img">
-            <img src="images/openkcloud_v0.1.5.png" alt="openkcloud_v0.1.5">
-          </div>
-          <div class="latest-post-content">
-            <span class="latest-post-type release">RELEASE</span> 
-            <div class="latest-post-title">openKcloud v0.1.5 공식 릴리즈 합니다. Github에 공개되었습니다.</div>
-            <div class="latest-post-date">2026.06.30</div>
-          </div>
-        </a>
       </div>
 
       <div class="latest-posts-more">
@@ -572,14 +573,318 @@
             <div class="page-header-sep"></div>
 
             <div class="info-box" style="background:rgba(26,111,216,0.06);border-left:3px solid var(--primary);">
-              <p>📌 &nbsp;최신 릴리스는 <strong>v0.1.5</strong>입니다. v0.1.5에서는 국내 AI반도체 가속기 지원 확대, 드라이버 롤링 업그레이드, NPU 메트릭 수집, 비용·전력 최적화, MLPerf 평가 기능이 강화되었습니다.</p>
+              <p>📌 &nbsp;최신 릴리스는 <strong>v0.2.0</strong>입니다. v0.2.0에서는 지원 가속기 5종 확대(Tenstorrent Blackhole 추가), 장치 분할·공유 및 DRA 할당, OpenStack 대시보드·Cyborg·Magnum 배포 구성 요소 공개, 모니터링 API v2(미터링·장애 분석), 통합 관리 포털이 추가되었습니다. v0.1.5에서 업그레이드하는 경우 아래 <strong>Breaking Changes</strong>를 먼저 확인하세요.</p>
+            </div>
+
+            <!-- ── v0.2.0 ── -->
+            <div style="margin-top:40px;">
+              <div style="display:flex;align-items:center;gap:14px;margin-bottom:6px;flex-wrap:wrap;">
+                <h2 class="doc-h2" style="margin:0;">v0.2.0</h2>
+                <span style="font-family:'Space Mono',monospace;font-size:10px;background:var(--primary);color:#fff;padding:3px 10px;border-radius:100px;letter-spacing:0.5px;">LATEST</span>
+                <span style="font-family:'Space Mono',monospace;font-size:10px;background:var(--surface2);color:var(--text-muted);padding:3px 10px;border-radius:100px;">MAJOR UPDATE</span>
+              </div>
+
+              <p style="font-size:13px;color:var(--text-muted);font-family:'Space Mono',monospace;margin-bottom:24px;">
+                2026 Q4 &nbsp;·&nbsp; openKcloud Community
+              </p>
+
+              <p class="doc-p">
+                openKcloud v0.2.0은 2차년도 통합 릴리스입니다. 지원 가속기를 5종(NVIDIA GPU, FuriosaAI Warboy·RNGD, Rebellions ATOM, Tenstorrent Blackhole)으로 확대하고 장치 분할·공유와 DRA 기반 할당을 도입했습니다. OpenStack 대시보드(Horizon)·Cyborg·Magnum 배포 구성 요소를 새로 공개했고, 모니터링 API를 v2로 재구성해 미터링·장애 분석 기능을 추가했으며, 통합 관리 포털(kcloud-mnt)을 처음 공개합니다.
+              </p>
+
+              <!-- kcloud-svc -->
+              <div style="background:#f8fffe;border:1px solid #d1f0e8;border-radius:10px;padding:20px 24px;margin:28px 0 16px;">
+                <div style="font-family:'Space Mono',monospace;font-size:12px;color:#1a9999;font-weight:700;margin-bottom:16px;letter-spacing:0.5px;">
+                  🔷 kcloud-svc — AI반도체 클라우드 서비스 제공 프레임워크
+                </div>
+
+                <h4 style="font-size:14px;font-weight:700;color:var(--text);margin:18px 0 10px;">
+                  kcloud-operator <span style="font-family:'Space Mono',monospace;font-size:11px;font-weight:400;color:var(--text-muted);">v0.8.4 (K8s 1.31~1.34) · v0.6.3-k8s1.28 (K8s 1.26~1.30)</span>
+                </h4>
+
+                <div style="font-size:13px;font-weight:700;color:#16a34a;margin:10px 0 8px;">
+                  신규 기능 (New Features)
+                </div>
+                <ul class="doc-ul" style="margin:0 0 14px;">
+                  <li>Tenstorrent Blackhole 지원 (NVIDIA GPU, FuriosaAI Warboy·RNGD, Rebellions ATOM 포함 총 5종)</li>
+                  <li>장치 분할·공유 지원: NVIDIA MIG·MPS·time-slicing, FuriosaAI RNGD 파티션</li>
+                  <li>DRA(Dynamic Resource Allocation) 기반 장치 할당 (선택, 기본 비활성)</li>
+                  <li>장치 명세서(AcceleratorDescriptor) 기반 범용 device plugin·DRA 드라이버 자동 배포</li>
+                  <li>장치 상태(health) 감시 및 상태별 자동 조치</li>
+                  <li>벤더 비종속 가속기 요청 API(AcceleratorClass, AcceleratorWorkload), 관리 REST API 및 kubectl-npu CLI</li>
+                </ul>
+
+                <div style="font-size:13px;font-weight:700;color:#5b21b6;margin:10px 0 8px;">
+                  개선 사항 (Improvements)
+                </div>
+                <ul class="doc-ul" style="margin:0 0 14px;">
+                  <li>노드 가속기 자동 탐지 및 벤더 라벨 자동 부착</li>
+                  <li>드라이버 업그레이드 안전장치 강화(허용 버전 목록, 롤백 버전 재시도 방지, 호스트 드라이버 버전 확인)</li>
+                  <li>GHCR 공개 이미지·Helm 차트(OCI) 배포 및 폐쇄망 미러 설정 지원</li>
+                </ul>
+
+                <div style="font-size:13px;font-weight:700;color:#ea580c;margin:10px 0 8px;">
+                  버그 수정 (Bug Fixes)
+                </div>
+                <ul class="doc-ul" style="margin:0 0 18px;">
+                  <li>패키지 고정(hold)으로 NVIDIA 드라이버 설치가 반복 실패하던 문제 수정(설치 전 점검 추가)</li>
+                  <li>FuriosaAI RNGD exporter가 <code>libfuriosa_smi.so</code>를 찾지 못하던 문제 수정</li>
+                </ul>
+
+                <h4 style="font-size:14px;font-weight:700;color:var(--text);margin:18px 0 10px;">
+                  kcloud-operator-images <span style="font-family:'Space Mono',monospace;font-size:10px;font-weight:400;background:#dcfce7;color:#16a34a;padding:2px 8px;border-radius:100px;margin-left:4px;">NEW</span>
+                </h4>
+
+                <div style="font-size:13px;font-weight:700;color:#16a34a;margin:10px 0 8px;">
+                  신규 기능 (New Features)
+                </div>
+                <ul class="doc-ul" style="margin:0 0 18px;">
+                  <li>kcloud-operator가 노드에 배포하는 부속 이미지 저장소 공개 (<code>ghcr.io/openkcloud</code>)</li>
+                  <li>노드 에이전트(kcloud-node-manager), NVIDIA·FuriosaAI·Tenstorrent 드라이버 설치기</li>
+                  <li>FuriosaAI RNGD exporter(사용률·메모리·온도·전력 등 12종 지표), Tenstorrent device plugin</li>
+                </ul>
+
+                <h4 style="font-size:14px;font-weight:700;color:var(--text);margin:18px 0 10px;">
+                  kcloud-nova
+                </h4>
+
+                <div style="font-size:13px;font-weight:700;color:#5b21b6;margin:10px 0 8px;">
+                  개선 사항 (Improvements)
+                </div>
+                <ul class="doc-ul" style="margin:0 0 18px;">
+                  <li>Placement 기반 가속기 인식 스케줄러 Weigher(AcceleratorWeigher) 적용</li>
+                </ul>
+
+                <h4 style="font-size:14px;font-weight:700;color:var(--text);margin:18px 0 10px;">
+                  kcloud-horizon · kcloud-cyborg-dashboard · kcloud-magnum-ui <span style="font-family:'Space Mono',monospace;font-size:10px;font-weight:400;background:#dcfce7;color:#16a34a;padding:2px 8px;border-radius:100px;margin-left:4px;">NEW</span>
+                </h4>
+
+                <div style="font-size:13px;font-weight:700;color:#16a34a;margin:10px 0 8px;">
+                  신규 기능 (New Features)
+                </div>
+                <ul class="doc-ul" style="margin:0 0 18px;">
+                  <li>openKcloud용 OpenStack 대시보드(Horizon) 이미지 공개 — Magnum·Octavia·Cyborg 대시보드 플러그인 통합, kcloud 로고 적용</li>
+                  <li>Cyborg 대시보드 플러그인: 가속기 목록, Device Profile 관리, 가속기별 Resource Class·Trait 표시</li>
+                </ul>
+
+                <h4 style="font-size:14px;font-weight:700;color:var(--text);margin:18px 0 10px;">
+                  kcloud-magnum-capi-helm <span style="font-family:'Space Mono',monospace;font-size:10px;font-weight:400;background:#dcfce7;color:#16a34a;padding:2px 8px;border-radius:100px;margin-left:4px;">NEW</span>
+                </h4>
+
+                <div style="font-size:13px;font-weight:700;color:#16a34a;margin:10px 0 8px;">
+                  신규 기능 (New Features)
+                </div>
+                <ul class="doc-ul" style="margin:0 0 18px;">
+                  <li>Magnum CAPI Helm 드라이버 및 Magnum 컨테이너 이미지 공개</li>
+                  <li>클러스터 라벨로 애드온 선택 설치: kcloud-operator(기본 활성), NVIDIA GPU Operator, Mellanox Network Operator, Node Feature Discovery</li>
+                  <li><code>--image</code>로 생성한 노드 그룹에 해당 노드 그룹 이미지 적용</li>
+                </ul>
+
+                <h4 style="font-size:14px;font-weight:700;color:var(--text);margin:18px 0 10px;">
+                  kcloud-genestack · kcloud-openstack-helm <span style="font-family:'Space Mono',monospace;font-size:10px;font-weight:400;background:#dcfce7;color:#16a34a;padding:2px 8px;border-radius:100px;margin-left:4px;">NEW</span>
+                </h4>
+
+                <div style="font-size:13px;font-weight:700;color:#16a34a;margin:10px 0 8px;">
+                  신규 기능 (New Features)
+                </div>
+                <ul class="doc-ul" style="margin:0 0 18px;">
+                  <li>Genestack 기반 OpenStack 배포에 Cyborg 설치 지원 (openKcloud Cyborg 차트·이미지 사용)</li>
+                  <li>openKcloud용 Cyborg Helm 차트를 GHCR OCI로 배포</li>
+                </ul>
+
+                <h4 style="font-size:14px;font-weight:700;color:var(--text);margin:18px 0 10px;">
+                  kcloud-cyborg · kcloud-requirements · kcloud-loci
+                </h4>
+                <ul class="doc-ul" style="margin:0;">
+                  <li>v0.2.0 릴리스 세트에 맞춘 버전 태그 (기능 변경 없음)</li>
+                </ul>
+              </div>
+
+              <!-- kcloud-opt -->
+              <div style="background:#fdf8ff;border:1px solid #e2d4f8;border-radius:10px;padding:20px 24px;margin-bottom:16px;">
+                <div style="font-family:'Space Mono',monospace;font-size:12px;color:#5b21b6;font-weight:700;margin-bottom:16px;letter-spacing:0.5px;">
+                  ⚡ kcloud-opt — AI반도체 클라우드 서비스 최적화 프레임워크
+                </div>
+
+                <h4 style="font-size:14px;font-weight:700;color:var(--text);margin:18px 0 10px;">
+                  kcloud-monitor
+                </h4>
+
+                <div style="font-size:13px;font-weight:700;color:#16a34a;margin:10px 0 8px;">
+                  신규 기능 (New Features)
+                </div>
+                <ul class="doc-ul" style="margin:0 0 14px;">
+                  <li><code>/api/v2</code> 모니터링 API로 재구성(167개 라우트) — 클러스터·노드·가속기·스토리지·OpenStack·워크로드·로그·알람 통합 조회</li>
+                  <li>GPU·NPU(FuriosaAI RNGD, Rebellions) 가속기 메트릭 통합 조회, MIG 파티션 및 쓰로틀링·전력 캡 상태 조회</li>
+                  <li>IPMI 실측·Kepler 기반 전력 측정, Rook-Ceph 스토리지 및 OpenStack VM 조회·전력 귀속</li>
+                  <li>Loki 기반 로그 검색, 알람 정책·알림 채널(메일·webhook), LLM 서빙 SLO(TTFT·TPOT) 조회</li>
+                  <li>가속기 사용량 미터링, 단가 정책, 월말 비용 예측 및 예산 판정</li>
+                  <li>장애 탐지·분석(추정 원인·영향 범위) 및 복구 정보 제공 (조회·권고 전용)</li>
+                  <li>수집 주기 조정 및 메트릭 필터링 정책 관리(미리보기·적용·되돌리기)</li>
+                </ul>
+
+                <div style="font-size:13px;font-weight:700;color:#5b21b6;margin:10px 0 8px;">
+                  개선 사항 (Improvements)
+                </div>
+                <ul class="doc-ul" style="margin:0 0 14px;">
+                  <li>응답 형식 정리(UTC ISO 8601 시각 통일, 현재값·시계열 응답 분리)</li>
+                  <li>노드 전력 기준을 IPMI 실측으로 통일</li>
+                </ul>
+
+                <div style="font-size:13px;font-weight:700;color:#ea580c;margin:10px 0 8px;">
+                  버그 수정 (Bug Fixes)
+                </div>
+                <ul class="doc-ul" style="margin:0 0 18px;">
+                  <li>MIG 사용 노드의 물리 GPU 누락, GPU 메모리 총량 계산 오류 수정</li>
+                  <li>일부 클러스터에서 FuriosaAI NPU 전력이 수집되지 않던 문제 수정</li>
+                  <li>Cyborg flavor로 생성한 가속기 VM이 가속기 없음으로 표시되던 문제 수정</li>
+                  <li>로그·LLM 지연 알람 오탐 및 미해제 문제 수정</li>
+                </ul>
+
+                <h4 style="font-size:14px;font-weight:700;color:var(--text);margin:18px 0 10px;">
+                  kcloud-cost-scheduler
+                </h4>
+
+                <div style="font-size:13px;font-weight:700;color:#16a34a;margin:10px 0 8px;">
+                  신규 기능 (New Features)
+                </div>
+                <ul class="doc-ul" style="margin:0 0 14px;">
+                  <li>가속기 Model Fit 검사 및 Memory·Power·Thermal Headroom 기반 Placement Check</li>
+                  <li>Catalog 기반 Workload Profile 조회 및 Catalog-aware Scoring(Shadow Mode)</li>
+                  <li>예측 대비 실측 비교, Scheduling Decision Log·Phase Timing 기록</li>
+                  <li>Admission Webhook 기반 가속기 정보 자동 Annotation(Pod·Kueue Workload)</li>
+                  <li>GPU·NPU(FuriosaAI RNGD) LLM Serving 배포 매니페스트 및 이종 가속기 성능·전력 측정 도구</li>
+                </ul>
+
+                <div style="font-size:13px;font-weight:700;color:#5b21b6;margin:10px 0 8px;">
+                  개선 사항 (Improvements)
+                </div>
+                <ul class="doc-ul" style="margin:0 0 18px;">
+                  <li>Pending Pod Requeue(Backoff·Retry Limit) 안정화 및 Node Score Normalization 개선</li>
+                  <li>Node Cache에 GPU Metrics 및 Pod Overhead 반영</li>
+                </ul>
+
+                <h4 style="font-size:14px;font-weight:700;color:var(--text);margin:18px 0 10px;">
+                  kcloud-infra-optimization
+                </h4>
+
+                <div style="font-size:13px;font-weight:700;color:#16a34a;margin:10px 0 8px;">
+                  신규 기능 (New Features)
+                </div>
+                <ul class="doc-ul" style="margin:0 0 14px;">
+                  <li>gRPC 벤치마크에 LLM Serving 성능 지표(TTFT·TPOT p50/p95/p99) 추가</li>
+                  <li>LLM Token Metrics(Prompt·Completion·Session·Max Context) 지원</li>
+                </ul>
+
+                <div style="font-size:13px;font-weight:700;color:#5b21b6;margin:10px 0 8px;">
+                  개선 사항 (Improvements)
+                </div>
+                <ul class="doc-ul" style="margin:0 0 18px;">
+                  <li>CNN·LLM 성능 지표 체계 개선(Throughput 단위, End-to-End Latency)</li>
+                </ul>
+
+                <h4 style="font-size:14px;font-weight:700;color:var(--text);margin:18px 0 10px;">
+                  kcloud-cost-optimizer
+                </h4>
+
+                <div style="font-size:13px;font-weight:700;color:#16a34a;margin:10px 0 8px;">
+                  신규 기능 (New Features)
+                </div>
+                <ul class="doc-ul" style="margin:0 0 18px;">
+                  <li>Scheduler Admission Webhook 연동 테스트 스크립트 및 Go 개발 환경 구성 스크립트</li>
+                </ul>
+
+                <h4 style="font-size:14px;font-weight:700;color:var(--text);margin:18px 0 10px;">
+                  kcloud-cost-estimator
+                </h4>
+
+                <div style="font-size:13px;font-weight:700;color:#5b21b6;margin:10px 0 8px;">
+                  개선 사항 (Improvements)
+                </div>
+                <ul class="doc-ul" style="margin:0;">
+                  <li>Docker 기반 전력 예측 API Quick Start 가이드 개선</li>
+                </ul>
+              </div>
+
+              <!-- kcloud-llm -->
+              <div style="background:#fff8f4;border:1px solid #ffd8c0;border-radius:10px;padding:20px 24px;margin-bottom:16px;">
+                <div style="font-family:'Space Mono',monospace;font-size:12px;color:#c2500a;font-weight:700;margin-bottom:16px;letter-spacing:0.5px;">
+                  🧠 kcloud-llm — 초거대 AI 서비스 지원 프레임워크
+                </div>
+                <ul class="doc-ul" style="margin:0;">
+                  <li>v0.2.0 릴리스 세트에는 kcloud-llm 구성 요소가 포함되지 않습니다. (kcloud-mlperf v0.1.5는 릴리스 세트에서 제외)</li>
+                </ul>
+              </div>
+
+              <!-- kcloud-mnt -->
+              <div style="background:#f4f8fd;border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin-bottom:16px;">
+                <div style="font-family:'Space Mono',monospace;font-size:12px;color:var(--text-mid);font-weight:700;margin-bottom:16px;letter-spacing:0.5px;">
+                  📊 kcloud-mnt — AI반도체 클라우드 서비스 통합 관리 프레임워크
+                </div>
+
+                <h4 style="font-size:14px;font-weight:700;color:var(--text);margin:18px 0 10px;">
+                  kcloud-mnt (openKcloud Portal) <span style="font-family:'Space Mono',monospace;font-size:10px;font-weight:400;background:#dcfce7;color:#16a34a;padding:2px 8px;border-radius:100px;margin-left:4px;">NEW</span>
+                </h4>
+
+                <div style="font-size:13px;font-weight:700;color:#16a34a;margin:10px 0 8px;">
+                  신규 기능 (New Features)
+                </div>
+                <ul class="doc-ul" style="margin:0 0 14px;">
+                  <li>Keycloak(OIDC) 로그인·세션 관리 및 RBAC 접근 제어</li>
+                  <li>IaaS 자원 신청 및 관리자 IaaS 관리(프로젝트·네트워크·라우터·보안그룹·볼륨·이미지·플레이버·가상서버)</li>
+                  <li>PaaS 자원 신청 및 관리자 PaaS 관리(서비스 클러스터·템플릿·워크로드·Pod)</li>
+                  <li>PaaS 클러스터 노드그룹 추가·삭제·노드 수 조정, 가상서버 인스턴스 스냅샷 생성</li>
+                  <li>인프라 모니터링 및 메뉴 관리</li>
+                </ul>
+
+                <div style="font-size:13px;font-weight:700;color:#5b21b6;margin:10px 0 8px;">
+                  개선 사항 (Improvements)
+                </div>
+                <ul class="doc-ul" style="margin:0 0 14px;">
+                  <li>프로젝트 멤버 수 즉시 갱신, 쿼터 수정 진입로 및 사용량 경고 추가</li>
+                </ul>
+
+                <div style="font-size:13px;font-weight:700;color:#ea580c;margin:10px 0 8px;">
+                  버그 수정 (Bug Fixes)
+                </div>
+                <ul class="doc-ul" style="margin:0;">
+                  <li>클러스터 템플릿 수정 시 라벨 삭제가 반영되지 않던 문제 수정</li>
+                </ul>
+              </div>
+
+              <!-- Breaking Changes -->
+              <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:20px 24px;margin-bottom:16px;">
+                <div style="font-family:'Space Mono',monospace;font-size:12px;color:#dc2626;font-weight:700;margin-bottom:12px;letter-spacing:0.5px;">
+                  ⚠️ Breaking Changes — 업그레이드 전 확인 필요
+                </div>
+                <ul class="doc-ul" style="margin:0;">
+                  <li><strong>kcloud-operator</strong> — 차트 이름이 <code>npu-operator</code> → <code>kcloud-operator</code>로 변경되어 v0.1.5에서 직접 업그레이드할 수 없습니다. 기존 차트를 삭제한 뒤 새로 설치해야 합니다.</li>
+                  <li><strong>kcloud-operator</strong> — Kubernetes 1.31 이상은 차트 0.8.x, 1.26~1.30은 차트 0.6.x를 사용합니다.</li>
+                  <li><strong>kcloud-operator</strong> — 노드 라벨이 <code>kcloud.ai/&lt;벤더&gt;.present</code> 형식으로 변경되었고, 기본 이미지 저장소가 <code>ghcr.io/openkcloud</code>로 변경되었습니다.</li>
+                  <li><strong>kcloud-monitor</strong> — <code>/api/v1</code>이 종료되어 모든 경로가 <code>/api/v2</code>로 바뀌었습니다. 토큰 발급은 <code>POST /api/v2/auth/login</code>(JWT) 또는 <code>X-API-Key</code>를 사용하며, 내보내기 형식은 CSV·JSON만 지원합니다.</li>
+                  <li><strong>kcloud-monitor</strong> — <code>PROMETHEUS_URL</code>이 필수가 되었고 환경 변수 항목이 바뀌었으므로 <code>.env.example</code> 기준으로 다시 설정해야 합니다.</li>
+                  <li><strong>kcloud-mnt</strong> — 소스 저장소가 <code>openkcloud/kcloud-mnt</code>로 이관되었습니다. 신규 설치 시 Keycloak 클라이언트 시크릿 등은 <code>--set</code>으로 주입해야 합니다.</li>
+                </ul>
+              </div>
+
+              <!-- Known Issues -->
+              <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:20px 24px;margin-bottom:16px;">
+                <div style="font-family:'Space Mono',monospace;font-size:12px;color:#b45309;font-weight:700;margin-bottom:12px;letter-spacing:0.5px;">
+                  🔎 알려진 이슈 (Known Issues)
+                </div>
+                <ul class="doc-ul" style="margin:0;">
+                  <li><strong>kcloud-operator</strong> — VM 환경에서 RNGD를 사용하던 VM이 비정상 종료되면 다음 VM이 장치를 사용하지 못하는 문제가 있으며, 다음 버전에서 대응 예정입니다.</li>
+                  <li><strong>kcloud-operator</strong> — 커널별 사전 빌드 드라이버 이미지는 벤더 재배포 조건으로 공개하지 않습니다. 공개 설치기는 노드에서 드라이버를 빌드하므로 패키지 저장소 접근이 필요합니다.</li>
+                  <li><strong>kcloud-monitor</strong> — <code>DATABASE_URL</code> 미설정 시 알람·미터링·장애 이력·수집 정책 API가 503을 반환합니다.</li>
+                  <li><strong>kcloud-monitor</strong> — VM GPU passthrough 조회 API는 아직 구현되지 않았습니다.</li>
+                </ul>
+              </div>
             </div>
 
             <!-- ── v0.1.5 ── -->
-            <div style="margin-top:40px;">
+            <div style="margin-top:48px;padding-top:32px;border-top:1px solid var(--border);">
               <div style="display:flex;align-items:center;gap:14px;margin-bottom:6px;flex-wrap:wrap;">
                 <h2 class="doc-h2" style="margin:0;">v0.1.5</h2>
-                <span style="font-family:'Space Mono',monospace;font-size:10px;background:var(--primary);color:#fff;padding:3px 10px;border-radius:100px;letter-spacing:0.5px;">LATEST</span>
                 <span style="font-family:'Space Mono',monospace;font-size:10px;background:var(--surface2);color:var(--text-muted);padding:3px 10px;border-radius:100px;">FEATURE UPDATE</span>
               </div>
 
@@ -994,10 +1299,10 @@
               <table class="fw-table">
                 <tr><th>항목</th><th>권장 요구 사항</th></tr>
                 <tr><td>OS</td><td>Ubuntu 22.04 LTS</td></tr>
-                <tr><td>Kubernetes</td><td>v1.28 이상 권장</td></tr>
+                <tr><td>Kubernetes</td><td>v1.31~1.34 (kcloud-operator 0.8.x), v1.26~1.30 (kcloud-operator 0.6.x)</td></tr>
                 <tr><td>OpenStack</td><td>2024.1 기반 구성 요소 지원</td></tr>
-                <tr><td>GPU/NPU</td><td>NVIDIA GPU, FuriosaAI RNGD, Rebellions ATOM+ 등 AI반도체 가속기 지원</td></tr>
-                <tr><td>모니터링</td><td>Prometheus, Grafana, DCGM, Kepler 연동 권장</td></tr>
+                <tr><td>GPU/NPU</td><td>NVIDIA GPU, FuriosaAI Warboy·RNGD, Rebellions ATOM, Tenstorrent Blackhole 등 AI반도체 가속기 지원</td></tr>
+                <tr><td>모니터링</td><td>Prometheus(필수), Loki, PostgreSQL, Grafana, DCGM, Kepler 연동 권장</td></tr>
               </table>
             </div>
 
@@ -1416,8 +1721,8 @@
 
     <!-- Filter tabs -->
     <div class="news-filter-bar">
-      <button class="news-filter-btn active" onclick="filterNews(this,'all')">전체 <span class="news-count-badge">12</span></button>
-      <button class="news-filter-btn" onclick="filterNews(this,'release')">🚀 릴리스 <span class="news-count-badge">2</span></button>
+      <button class="news-filter-btn active" onclick="filterNews(this,'all')">전체 <span class="news-count-badge">13</span></button>
+      <button class="news-filter-btn" onclick="filterNews(this,'release')">🚀 릴리스 <span class="news-count-badge">3</span></button>
       <button class="news-filter-btn" onclick="filterNews(this,'blog')">📑 공지 &amp;💻 블로그 <span class="news-count-badge">8</span></button>
       <button class="news-filter-btn" onclick="filterNews(this,'roadmap')">🧭 로드맵 <span class="news-count-badge">1</span></button>
       <button class="news-filter-btn" onclick="filterNews(this,'media')">📰 미디어 <span class="news-count-badge">2</span></button>
@@ -1474,6 +1779,24 @@
           <div class="news-card-footer">
             <span class="news-read-more">상세 보기</span>
             <span class="news-source-badge">시범서비스</span>
+          </div>
+        </div>
+      </div>
+      <!-- RELEASE 3 -->
+      <div class="news-card reveal" data-cat="release" onclick="openNewsDrawer('news-v020')">
+        <div class="news-card-img">
+           <img src="images/openkcloud_v0.2.0.png" alt="openKcloud_v0.2.0" class="news-card-thumb">
+        </div>
+        <div class="news-card-body">
+          <div class="news-meta">
+            <span class="news-date">2026.11.27</span>
+            <span class="news-tag-pill tag-release">RELEASE</span>
+          </div>
+          <div class="news-card-title">openKcloud v0.2.0 공식 릴리스</div>
+          <p class="news-card-excerpt">openKcloud v0.2.0은 지원 가속기 5종 확대, 장치 분할·공유 및 DRA 할당, OpenStack 대시보드·Magnum 배포 구성 요소, 모니터링 API v2, 통합 관리 포털을 새로 제공하는 2차년도 통합 릴리스</p>
+          <div class="news-card-footer">
+            <span class="news-read-more">상세 보기</span>
+            <span class="news-source-badge">v0.2.0</span>
           </div>
         </div>
       </div>
@@ -1698,6 +2021,44 @@
     <div class="dl-cards">
       <div class="dl-card featured">
         <div class="dl-badge">LATEST</div>
+        <div class="dl-version">v0.2.0</div>
+        <div class="dl-title">openKcloud Platform</div>
+        <p class="dl-desc">지원 가속기 5종 확대, 장치 분할·공유 및 DRA 할당, OpenStack 대시보드·Cyborg·Magnum 배포 구성 요소, 모니터링 API v2(미터링·장애 분석), 통합 관리 포털 공개 </p>
+        <div class="dl-info">
+          <div class="dl-info-item"><strong>2026.11.27</strong>릴리스 날짜</div>
+          <div class="dl-info-item"><strong>Apache 2.0</strong>라이선스</div>
+          <div class="dl-info-item"><strong>Kubernetes 1.26+</strong>요구사항</div>
+        </div>
+        <div class="dl-btn"><a href="https://github.com/openkcloud/openkcloud/archive/refs/tags/v0.2.0.tar.gz" class="btn-primary" target="_blank" rel="noopener">↓ &nbsp;Source (.tar.gz)</a>   
+        </div>
+        <div class="dl-btn"><a href="https://github.com/openkcloud/openkcloud/archive/refs/tags/v0.2.0.zip" class="btn-primary" target="_blank" rel="noopener">↓ &nbsp;Source (.zip)</a>   
+        </div>           
+      </div>      
+    </div>
+    <div class="dl-changelog">
+      <div class="dl-changelog-title">📋 변경 이력</div>
+      <div class="changelog-item">
+        <div class="changelog-ver">v0.2.0</div>
+        <div class="changelog-date">2026.11</div>
+        <ul class="changelog-list">
+          <li>kcloud-operator v0.8.4: Tenstorrent Blackhole 지원(5종 가속기), MIG·MPS·time-slicing·RNGD 파티션 장치 분할·공유, DRA 할당, 장치 상태 감시</li>
+          <li>kcloud-operator-images (신규): 노드 에이전트, NVIDIA·FuriosaAI·Tenstorrent 드라이버 설치기, FuriosaAI RNGD exporter</li>
+          <li>kcloud-nova: Placement 기반 가속기 인식 스케줄러 Weigher(AcceleratorWeigher) 적용</li>
+          <li>kcloud-horizon·cyborg-dashboard·magnum-ui (신규): Cyborg·Magnum 플러그인을 통합한 openKcloud용 Horizon 대시보드</li>
+          <li>kcloud-magnum-capi-helm·genestack·openstack-helm (신규): Magnum CAPI Helm 드라이버, Genestack 기반 Cyborg 배포, Cyborg Helm 차트(OCI)</li>
+          <li>kcloud-monitor: <code>/api/v2</code> 재구성(167개 라우트), 가속기·전력·Ceph·OpenStack·로그·알람 통합, 미터링·비용 예측, 장애 분석·복구 정보</li>
+          <li>kcloud-cost-scheduler: Model Fit·Headroom 기반 Placement Check, Catalog-aware Scoring, Scheduling Decision Log</li>
+          <li>kcloud-infra-optimization: LLM Serving 성능 지표(TTFT·TPOT) 및 Token Metrics 지원</li>
+          <li>kcloud-cost-optimizer·cost-estimator: Admission Webhook 연동 테스트 스크립트, 전력 예측 API Quick Start 개선</li>
+          <li>kcloud-mnt (신규): openKcloud Portal — Keycloak(OIDC)·RBAC, IaaS/PaaS 자원 신청·관리, 인프라 모니터링</li>
+          <li>kcloud-mlperf: 릴리스 세트에서 제외</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dl-cards previous-version">
+      <div class="dl-card featured">
+        <div class="dl-badge">PREVIOUS</div>
         <div class="dl-version">v0.1.5</div>
         <div class="dl-title">openKcloud Platform</div>
         <p class="dl-desc">국내 AI반도체 가속기 지원 확대, 드라이버 업그레이드 안정성 강화, NPU 메트릭 수집, 비용·전력 최적화, MLPerf 평가 기능을 고도화 </p>
@@ -1781,7 +2142,7 @@
     </div>
     <div class="gh-stats-grid">
       <div class="gh-stat"><div class="gh-stat-num">19</div><div class="gh-stat-label">Repositories</div></div>
-      <div class="gh-stat"><div class="gh-stat-num">v0.1.5</div><div class="gh-stat-label">Latest Release</div></div>
+      <div class="gh-stat"><div class="gh-stat-num">v0.2.0</div><div class="gh-stat-label">Latest Release</div></div>
       <div class="gh-stat"><div class="gh-stat-num">Apache</div><div class="gh-stat-label">License 2.0</div></div>
       <div class="gh-stat"><div class="gh-stat-num" style="font-size:36px;letter-spacing:-0.5px;">K-Cloud</div><div class="gh-stat-label">AI Semiconductor Cloud</div></div>
     </div>
@@ -1857,6 +2218,26 @@
       </div>
       <div class="forum-threads">
 
+        <div class="forum-thread pinned" data-cat="announce" onclick="openThreadDetail(11)">
+          <div class="thread-avatar avatar-teal">K</div>
+          <div class="thread-body">
+            <div class="thread-title-row">
+              <span class="thread-pin">📌</span>
+              <span class="thread-title">📢 openKcloud v0.2.0 공식 릴리스 — 릴리스 노트</span>
+              <span class="thread-badge badge-announce">RELEASE</span>
+            </div>
+            <div class="thread-meta">
+              <span>openKcloud 커뮤니티</span>
+              <span>·</span>
+              <span>kcloud-svc, kcloud-opt, kcloud-mnt, kcloud-operator, kcloud-monitor, kcloud-horizon</span>
+            </div>
+          </div>
+          <div class="thread-stats">
+            <span class="thread-stat-num">💬 0</span>
+            <span class="thread-time">2026-11-27</span>
+          </div>
+        </div>
+
         <div class="forum-thread pinned" data-cat="announce" onclick="openThreadDetail(10)">
           <div class="thread-avatar avatar-blue">K</div>
           <div class="thread-body">
@@ -1931,7 +2312,7 @@
           </div>
           <div class="thread-stats">
             <span class="thread-stat-num">💬 0</span>
-            <span class="thread-time">2025-11-27</span>
+            <span class="thread-time">2026-06-30</span>
           </div>
         </div>
         <div class="forum-thread pinned" data-cat="announce" onclick="openThreadDetail(1)">
