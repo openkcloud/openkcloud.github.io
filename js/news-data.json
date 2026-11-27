@@ -75,14 +75,19 @@
       {
         "type": "ul",
         "items": [
-          "<strong>kcloud-svc</strong> — kcloud-operator v0.8.4: Tenstorrent Blackhole 지원 추가로 NVIDIA GPU, FuriosaAI Warboy·RNGD, Rebellions ATOM 포함 5종 가속기 지원",
-          "<strong>kcloud-svc</strong> — NVIDIA MIG·MPS·time-slicing, FuriosaAI RNGD 파티션 기반 장치 분할·공유 및 DRA(Dynamic Resource Allocation) 할당 지원",
-          "<strong>kcloud-svc</strong> — 장치 상태 감시·자동 조치, 벤더 비종속 가속기 요청 API(AcceleratorClass, AcceleratorWorkload) 지원",
-          "<strong>kcloud-svc</strong> — openKcloud용 Horizon 대시보드(Cyborg·Magnum 플러그인), Magnum CAPI Helm 드라이버, Genestack 기반 Cyborg 배포 지원",
-          "<strong>kcloud-opt</strong> — kcloud-monitor <code>/api/v2</code> 재구성: 가속기·전력·Ceph·OpenStack·로그·알람 통합 조회, 미터링·비용 예측, 장애 분석·복구 정보",
-          "<strong>kcloud-opt</strong> — kcloud-cost-scheduler: 가속기 Model Fit·Headroom 기반 Placement Check, Catalog-aware Scoring, Scheduling Decision Log",
-          "<strong>kcloud-opt</strong> — kcloud-infra-optimization: LLM Serving 성능 지표(TTFT·TPOT) 및 Token Metrics 지원",
-          "<strong>kcloud-mnt</strong> — openKcloud Portal 공개: Keycloak(OIDC) 로그인·RBAC, IaaS/PaaS 자원 신청·관리, 인프라 모니터링"
+          "<span><strong>kcloud-operator</strong> — Tenstorrent Blackhole 추가로 5종 가속기 지원, 장치 분할·공유(MIG·MPS·time-slicing·RNGD 파티션) 및 DRA 할당 지원</span>",
+          "<span><strong>kcloud-operator-images</strong> — 노드 에이전트, NVIDIA·FuriosaAI·Tenstorrent 드라이버 설치기, FuriosaAI RNGD exporter 이미지 공개</span>",
+          "<span><strong>kcloud-nova</strong> — Placement 기반 가속기 인식 스케줄러 Weigher(AcceleratorWeigher) 적용</span>",
+          "<span><strong>kcloud-horizon</strong> — Magnum·Octavia·Cyborg 대시보드 플러그인을 통합한 openKcloud용 Horizon 이미지 제공</span>",
+          "<span><strong>kcloud-cyborg-dashboard</strong> — 가속기 목록, Device Profile 관리, 가속기별 Resource Class·Trait 표시 지원</span>",
+          "<span><strong>kcloud-magnum-capi-helm</strong> — 클러스터 라벨로 kcloud-operator, NVIDIA GPU Operator, Node Feature Discovery 등 애드온 선택 설치 지원</span>",
+          "<span><strong>kcloud-genestack</strong> — Genestack 기반 OpenStack 배포에 Cyborg 설치 지원</span>",
+          "<span><strong>kcloud-openstack-helm</strong> — openKcloud용 Cyborg Helm 차트를 GHCR OCI로 배포</span>",
+          "<span><strong>kcloud-monitor</strong> — /api/v2 재구성으로 가속기·전력·스토리지·로그·알람 통합 조회, 미터링·비용 예측, 장애 분석 지원</span>",
+          "<span><strong>kcloud-cost-scheduler</strong> — 가속기 Model Fit·Headroom 기반 Placement Check 및 Catalog-aware Scoring 지원</span>",
+          "<span><strong>kcloud-infra-optimization</strong> — LLM Serving 성능 지표(TTFT·TPOT) 및 Token Metrics 지원</span>",
+          "<span><strong>kcloud-cost-optimizer</strong> — Scheduler Admission Webhook 연동 테스트 스크립트 지원</span>",
+          "<span><strong>kcloud-mnt</strong> — Keycloak(OIDC)·RBAC, IaaS/PaaS 자원 신청·관리, 인프라 모니터링을 제공하는 openKcloud Portal 공개</span>"
         ]
       },
       {
@@ -92,8 +97,8 @@
       {
         "type": "ul",
         "items": [
-          "<strong>kcloud-svc</strong> — kcloud-operator-images, kcloud-horizon, kcloud-cyborg-dashboard, kcloud-magnum-ui, kcloud-magnum-capi-helm, kcloud-genestack, kcloud-openstack-helm",
-          "<strong>kcloud-mnt</strong> — kcloud-mnt (openKcloud Portal)"
+          "<span><strong>kcloud-svc</strong> — kcloud-operator-images, kcloud-horizon, kcloud-cyborg-dashboard, kcloud-magnum-ui, kcloud-magnum-capi-helm, kcloud-genestack, kcloud-openstack-helm</span>",
+          "<span><strong>kcloud-mnt</strong> — kcloud-mnt (openKcloud Portal)</span>"
         ]
       },
       {
@@ -103,10 +108,9 @@
       {
         "type": "ul",
         "items": [
-          "<strong>kcloud-operator</strong> — 차트 이름 변경(<code>npu-operator</code> → <code>kcloud-operator</code>)으로 v0.1.5에서 직접 업그레이드 불가, 삭제 후 재설치 필요",
-          "<strong>kcloud-operator</strong> — Kubernetes 1.31 이상은 차트 0.8.x, 1.26~1.30은 차트 0.6.x 사용 / 노드 라벨 <code>kcloud.ai/&lt;벤더&gt;.present</code>로 변경",
-          "<strong>kcloud-monitor</strong> — <code>/api/v1</code> 종료(<code>/api/v2</code>로 전환), 인증은 JWT 로그인 또는 <code>X-API-Key</code>, 내보내기는 CSV·JSON만 지원",
-          "<strong>kcloud-mnt</strong> — 소스 저장소 <code>openkcloud/kcloud-mnt</code>로 이관"
+          "<span><strong>kcloud-operator</strong> — 차트 이름 변경(npu-operator → kcloud-operator)으로 v0.1.5에서 직접 업그레이드 불가, 삭제 후 재설치 필요</span>",
+          "<span><strong>kcloud-monitor</strong> — /api/v1 종료 및 /api/v2 전환, 인증·내보내기 형식·환경 변수 변경</span>",
+          "<span><strong>kcloud-mnt</strong> — 소스 저장소를 openkcloud/kcloud-mnt로 이관</span>"
         ]
       },
       {
@@ -115,7 +119,7 @@
       },
       {
         "type": "p",
-        "text": "kcloud-mlperf(kcloud-llm)는 v0.2.0 릴리스 세트에서 제외되었습니다. kcloud-cyborg, kcloud-requirements, kcloud-loci는 기능 변경 없이 v0.2.0 태그가 부여되었습니다."
+        "text": "kcloud-mlperf(kcloud-llm)는 v0.2.0 릴리스 세트에서 제외되었습니다. kcloud-magnum-ui는 kcloud-horizon 이미지에 포함되어 배포되며, kcloud-cyborg, kcloud-requirements, kcloud-loci, kcloud-cost-estimator는 주요 기능 변경 없이 v0.2.0 태그가 부여되었습니다."
       },
       {
         "type": "section",
